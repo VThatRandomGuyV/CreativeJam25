@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7277709363797054526}
   - component: {fileID: 7549041778833700098}
   - component: {fileID: 8401433004866362306}
+  - component: {fileID: 9117774343697982545}
+  - component: {fileID: 6010474830968720872}
   - component: {fileID: 3773818598775845539}
   - component: {fileID: 1643819292734749714}
   m_Layer: 6
@@ -82,6 +84,38 @@ MonoBehaviour:
   speed: 5
   dashSpeed: 1
   dashCooldown: 1.5
+--- !u!114 &9117774343697982545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909555274014226511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6e60a5845e31644ba2ad9c57a4e033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  speed: 0
+  voidRadius: 0
+  invincibilityDuration: 2
+  blinkCooldown: 0.5
+  damageSound: {fileID: 0}
+  deathSound: {fileID: 0}
+--- !u!114 &6010474830968720872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909555274014226511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3706ca1865867d93d90754332a03261d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!50 &3773818598775845539
 Rigidbody2D:
   serializedVersion: 5
@@ -205,7 +239,7 @@ MonoBehaviour:
   player: {fileID: 7549041778833700098}
   bulletPrefab: {fileID: 1192747416667966142, guid: ff45c701d3386584794dde714b1b6a5d, type: 3}
   bulletSpawnPoint: {fileID: 7255201759582819541}
-  reloadCooldown: 0.2
+  reloadCooldown: 0.5
   reloadTime: 0
 --- !u!95 &2093976319093873078
 Animator:

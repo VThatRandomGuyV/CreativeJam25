@@ -3,7 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Player))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController_OLD : MonoBehaviour
 {
     private Player player;
     private PlayerControls controls;
