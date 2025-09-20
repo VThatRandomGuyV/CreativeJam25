@@ -434,7 +434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2076683881682969202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -661,10 +661,10 @@ RectTransform:
   - {fileID: 2668279527223108204}
   m_Father: {fileID: 2176979467084559427}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 84.105, y: -48}
-  m_SizeDelta: {x: -168.21, y: -110.993}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -43.89499, y: 47.999992}
+  m_SizeDelta: {x: 87.78999, y: 81.007}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3008909409421938091
 CanvasRenderer:
@@ -5897,7 +5897,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1132020075
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LevelInfoSO
   m_EditorClassIdentifier: 
   redEnemiesKillCount: 0
-  blueEnemiesKillCount: 1104
+  blueEnemiesKillCount: 0
   greenEnemiesKillCount: 0
-  totalEnemiesKillCount: 1104
+  totalEnemiesKillCount: 0

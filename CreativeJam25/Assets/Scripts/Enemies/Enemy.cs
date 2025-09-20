@@ -96,7 +96,7 @@ namespace Characters
 
         protected virtual void MoveTowardsPlayer()
         {
-            // navMeshAgent.SetDestination(playerPosition);
+            navMeshAgent.SetDestination(playerPosition);
 
             // Flip sprite depending on player position
             characterSpriteRenderer.flipX = playerPosition.x < transform.position.x;

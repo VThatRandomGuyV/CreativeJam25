@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using Combat;
-using Levels;
 using UnityEngine;
 using Utility;
 
