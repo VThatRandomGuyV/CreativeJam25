@@ -52,7 +52,7 @@ public class Level : MonoBehaviour
     public void UpdateCurrentColor(LevelColor newColor)
     {
         currentColor = newColor;
-        spawnManager.SetLevelColor(newColor);
+        //spawnManager.SetLevelColor(newColor);
 
         PlayAudio();
     }
@@ -127,7 +127,7 @@ public class Level : MonoBehaviour
     public void Start()
     {
         _levelColorManager.Initialize();
-        spawnManager.Initialize();
+        //spawnManager.Initialize();
 
         SpawnPlayer();
     }

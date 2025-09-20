@@ -35,10 +35,9 @@ namespace Characters
         public SpriteRenderer SpriteRenderer => GetComponentInChildren<SpriteRenderer>();
         public float AttackDamage => attackDamage;
 
-        public virtual void Initialize(Player player, Transform weaponProjectileContainer)
+        public virtual void Initialize(Player player)
         {
             this.player = player;
-            //this.weaponProjectileContainer = weaponProjectileContainer;
 
             if (!player)
             {

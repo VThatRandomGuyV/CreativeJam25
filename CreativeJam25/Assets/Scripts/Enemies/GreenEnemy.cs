@@ -17,8 +17,7 @@ namespace Characters
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            Initialize(Level.Instance.Player, null);
-
+            player = Level.Instance.Player;
             buffTriggerCollider = GetComponent<Collider2D>();
             Physics2D.IgnoreCollision(punchFistCollider, buffTriggerCollider);
             Physics2D.IgnoreCollision(punchFistColliderTrigger, buffTriggerCollider);

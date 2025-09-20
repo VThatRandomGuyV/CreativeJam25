@@ -220,7 +220,6 @@ GameObject:
   - component: {fileID: 7496476180899592813}
   - component: {fileID: 1181669545835133422}
   - component: {fileID: 3479556103046260041}
-  - component: {fileID: 3112542397731519621}
   m_Layer: 9
   m_Name: BlueEnemy
   m_TagString: Enemy
@@ -296,37 +295,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3112542397731519621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2800850533861119925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b80710ca1d594807911abf263ecfc1bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterCollider: {fileID: 0}
-  characterRigidbody: {fileID: 0}
-  characterSpriteRenderer: {fileID: 0}
-  health: 0
-  moveSpeed: 0
-  navMeshAgent: {fileID: 0}
-  levelColor: 0
-  attackRange: 0
-  attackDamage: 0
-  attackCooldown: 0
-  knockbackForce: 0
-  shieldHP: 0
-  buffed: 0
-  projectilePrefab: {fileID: 0}
-  projectileCooldown: 3
-  projectileDamage: 10
-  projectileSpeed: 800
-  shootingPoint: {fileID: 0}
-  weaponProjectilContainer: {fileID: 0}
 --- !u!1 &3408304355758906091
 GameObject:
   m_ObjectHideFlags: 0
