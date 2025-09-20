@@ -4,9 +4,9 @@ using Utility;
 
 namespace Characters
 {
-    public class RedEnemy : Enemy
+    public class BlueEnemy : Enemy
     {
-        [Header(nameof(RedEnemy))]
+        [Header(nameof(BlueEnemy))]
         [SerializeField] private GameObject lavaPoolPrefab;
         [SerializeField] private float lavaPoolCooldown;
         
@@ -33,26 +33,26 @@ namespace Characters
         {
             base.MoveTowardsPlayer();
             
-            SpawnLavaPool();
+            //SpawnLavaPool();
         }
 
-        private void SpawnLavaPool()
-        {
-            if (!lavaPoolPrefab)
-            {
-                Debug.LogError("Lava pool prefab not set.");
-                return;
-            }
+        //private void SpawnLavaPool()
+        //{
+        //    if (!lavaPoolPrefab)
+        //    {
+        //        Debug.LogError("Lava pool prefab not set.");
+        //        return;
+        //    }
 
-            if (!(Time.time - lastLavaPoolSpawnTime > lavaPoolCooldown))
-            {
-                return;
-            }
+        //    if (!(Time.time - lastLavaPoolSpawnTime > lavaPoolCooldown))
+        //    {
+        //        return;
+        //    }
             
-            lastLavaPoolSpawnTime = Time.time;
-            var lavaPool = Instantiate(lavaPoolPrefab, transform.position, transform.rotation);
-            lavaPool.transform.SetParent(weaponProjectileContainer);
-            lavaPools.Add(lavaPool.GetComponent<LavaPool>());
-        }
+        //    lastLavaPoolSpawnTime = Time.time;
+        //    var lavaPool = Instantiate(lavaPoolPrefab, transform.position, transform.rotation);
+        //    lavaPool.transform.SetParent(weaponProjectileContainer);
+        //    lavaPools.Add(lavaPool.GetComponent<LavaPool>());
+        //}
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5865534230458705893}
   m_Layer: 9
   m_Name: Visual
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 9086073300782547692}
   m_Layer: 9
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 6782431589095618770}
   m_Layer: 0
   m_Name: Trail
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5092,6 +5092,9 @@ MonoBehaviour:
   attackDamage: 10
   attackCooldown: 3
   knockbackForce: 0.25
+  shieldHP: 0
+  shieldDuration: 0
+  buffed: 0
   lavaPoolPrefab: {fileID: 5205888642912483777, guid: 00706da32cd802743b93f9dc3cb0a11a, type: 3}
   lavaPoolCooldown: 0.35
 --- !u!50 &1181669545835133422

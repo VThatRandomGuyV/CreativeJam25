@@ -112,7 +112,7 @@ public class SpawnManager : MonoBehaviour
         var enemies = levelData[dataIndex].Enemies;
         foreach (var enemy in enemies)
         {
-            enemy.SetEnemyState(EnemyState.Dormant);
+            //enemy.SetEnemyState(EnemyState.Dormant);
         }
     }
 

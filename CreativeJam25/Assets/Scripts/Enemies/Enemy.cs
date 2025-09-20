@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 using Levels;
+using System.Collections;
 
 namespace Characters
 {
@@ -21,10 +22,13 @@ namespace Characters
 
         protected EnemyState currentState;
         protected Player player;
+        [SerializeField] protected float shieldHP;
+        [SerializeField] private bool buffed = false;
         protected float lastAttackTime;
         protected Vector2 playerPosition;
         protected Vector2 normalizedTrajectoryToPlayer;
-        protected Transform weaponProjectileContainer;
+        protected float shieldDuration = 5f;
+        //protected Transform weaponProjectileContainer;
 
         public Collider2D EnemyCollider => characterCollider;
         public LevelColor LevelColor => levelColor;
@@ -34,7 +38,7 @@ namespace Characters
         public virtual void Initialize(Player player, Transform weaponProjectileContainer)
         {
             this.player = player;
-            this.weaponProjectileContainer = weaponProjectileContainer;
+            //this.weaponProjectileContainer = weaponProjectileContainer;
 
             if (!player)
             {
@@ -44,6 +48,7 @@ namespace Characters
 
             lastAttackTime = Time.time;
             currentState = EnemyState.Attacking;
+            gameObject.tag = "Enemy";
         }
 
         private void Start()
@@ -68,7 +73,7 @@ namespace Characters
                 Death();
             }
 
-            if (currentState is EnemyState.Dormant or EnemyState.Dead)
+            if (currentState is EnemyState.Dead)
             {
                 characterRigidbody.linearVelocity = Vector2.zero;
                 gameObject.SetActive(false);
@@ -92,6 +97,23 @@ namespace Characters
         protected virtual void ToggleProjectiles(bool toggle)
         {
 
+        }
+
+        private IEnumerator ShieldDurationCoroutine()
+        {
+            yield return new WaitForSeconds(shieldDuration);
+        }
+
+        internal void ShieldYourself(float shieldAmount)
+        {
+            if (buffed)
+            {
+                return;
+            }
+
+            buffed = true;
+            shieldHP = shieldAmount;
+            StartCoroutine(ShieldDurationCoroutine());
         }
 
         protected virtual void MoveTowardsPlayer()
@@ -121,7 +143,15 @@ namespace Characters
 
         public void TakeDamage(float damageTaken)
         {
-            health -= damageTaken;
+            if(shieldHP > 0)
+            {
+                shieldHP -= damageTaken;
+            }
+            else
+            {
+                health -= damageTaken;
+            }
+
 
             // Knockback effect
             var knockbackDirection = (Vector2)transform.position - playerPosition;

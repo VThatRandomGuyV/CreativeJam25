@@ -1,84 +1,89 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Threading;
+using Combat;
+using Levels;
 using UnityEngine;
+using Core;
 
 namespace Characters
 {
     public class YellowEnemy : Enemy
     {
         [Header(nameof(YellowEnemy))]
-        [SerializeField] private Collider2D enemyTriggerCollider;
+        [SerializeField] private GameObject projectilePrefab;
+        [SerializeField] private float projectileCooldown = 3f;
+        [SerializeField] private float projectileDamage = 10f;
+        [SerializeField] private float projectileSpeed = 800f;
+        [SerializeField] private Transform shootingPoint;
+        [SerializeField] private Transform weaponProjectilContainer;
 
-        private Vector2 startPosition;
-        private Vector2 endPosition;
-        private bool isDashing;
-        private float speedPerFrame;
-        private float speedTimer;
+        private Core.Timer timer;
+        private bool projectileToggle;
+        private Transform weaponProjectileContainer;
 
-        public override void Initialize(Player player, Transform weaponProjectileContainer)
+        private readonly List<Bullet> raindropBullets = new();
+
+        public void Start()
         {
-            base.Initialize(player, weaponProjectileContainer);
+            if (!weaponProjectilContainer)
+            {
+                Debug.Log("weapon container is null");
+            }
+        }
+
+        protected override void ToggleProjectiles(bool toggle)
+        {
+            if (projectileToggle == toggle)
+            {
+                return;
+            }
+
+            projectileToggle = toggle;
+            foreach (var raindropBullet in raindropBullets)
+            {
+                raindropBullet.SetActive(toggle);
+            }
+        }
+
+        protected override void MoveTowardsPlayer()
+        {
+            base.MoveTowardsPlayer();
+
+            var trajectory = playerPosition - (Vector2)transform.position;
+            trajectory.Normalize();
+
+            // Flip the spawn point of the projectile
+            shootingPoint.transform.position = transform.position + (Vector3)trajectory * 0.5f;
+            shootingPoint.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(trajectory.y, trajectory.x) * Mathf.Rad2Deg);
             
-            Physics2D.IgnoreCollision(EnemyCollider, player.PlayerCollider);
-            speedPerFrame = Time.deltaTime * moveSpeed;
+            SpawnRainDropProjectile();
         }
 
-        private void FixedUpdate()
+        private void SpawnRainDropProjectile()
         {
-            if (!player)
+            if (timer == null || timer.time <= 0f)
             {
-                Debug.LogError("Player is not active.");
-                Destroy(this);
-                return;
+                // Reset timer
+                timer = new Core.Timer(projectileCooldown);
+
+                var trajectoryVector = playerPosition - (Vector2)shootingPoint.transform.position;
+                // if the vector maginitude is too small, magnify it
+                if (trajectoryVector.magnitude < 1.0f)
+                {
+                    trajectoryVector *= 10f;
+                }
+
+                trajectoryVector.Normalize();
+
+                Quaternion prefabRotation = Quaternion.Euler( 0, 0, 
+                                        Mathf.Atan2 ( trajectoryVector.y, trajectoryVector.x ) * Mathf.Rad2Deg );
+                
+                var bullet = Instantiate(projectilePrefab, shootingPoint.transform.position, prefabRotation, weaponProjectileContainer);
+                var bulletComponent = bullet.GetComponent<Bullet>();
+                bulletComponent.Initialize(trajectoryVector, "BlueEnemy", projectileSpeed, projectileDamage);
+                raindropBullets.Add(bulletComponent);
             }
-
-            if (health <= 0)
-            {
-                Death();
-                return;
-            }
-
-            if (currentState is EnemyState.Dormant or EnemyState.Dead)
-            {
-                isDashing = false;
-                characterRigidbody.linearVelocity = Vector2.zero;
-                gameObject.SetActive(false);
-                return;
-            }
-
-            gameObject.SetActive(true);
-
-            if (isDashing && (Vector2)transform.position != endPosition)
-            {
-                speedTimer += speedPerFrame;
-                transform.position = Vector2.Lerp(startPosition, endPosition, speedTimer);
-                lastAttackTime = Time.time;
-                return;
-            }
-
-            isDashing = false;
-            TryAttackPlayer();
-        }
-
-        protected override void TryAttackPlayer()
-        {
-            if (Time.time - lastAttackTime < attackCooldown || currentState is not EnemyState.Attacking || isDashing)
-            {
-                return;
-            }
-
-            startPosition = transform.position;
-            playerPosition = player.transform.position;
-            endPosition = playerPosition - (Vector2)transform.position;
-            isDashing = true;
-            speedTimer = 0;
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.GetComponent<Collider2D>() == player.PlayerCollider)
-            {
-                player.TakeDamage(attackDamage);
-            }
+            timer.Tick(Time.fixedDeltaTime);
         }
     }
 }

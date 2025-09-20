@@ -1,5 +1,5 @@
-﻿using Combat;
-using Levels;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Utility;
 
@@ -8,46 +8,38 @@ namespace Characters
     public class GreenEnemy : Enemy
     {
         [Header(nameof(GreenEnemy))]
-        [SerializeField] private Transform enemyBody;
-        [SerializeField] private PunchFist punchFist;
-        
-        protected override void MoveTowardsPlayer()
+        [SerializeField] private Collider2D buffCollider;
+
+        private readonly List<Enemy> _shieldedEnemies = new();
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
         {
-            if (punchFist.IsPunching)
+            buffCollider = GetComponent<Collider2D>();
+            if (!buffCollider)
             {
-                characterRigidbody.linearVelocity = Vector2.zero;
-                return;
+                Debug.Log("buff collider is null");
             }
-            
-            playerPosition = player.transform.position;
-            normalizedTrajectoryToPlayer = (playerPosition - (Vector2)transform.position).normalized;
-            characterRigidbody.linearVelocity = normalizedTrajectoryToPlayer * (Time.fixedDeltaTime * moveSpeed);
-            
-            var enemyBodyRotation = enemyBody.rotation;
-            enemyBodyRotation.y = playerPosition.x < transform.position.x ? 180f : 0f;
-            enemyBody.rotation = enemyBodyRotation;
+
+            Initialize(Level.Instance.Player, null);
         }
 
-        protected override void TryAttackPlayer()
+        // Update is called once per frame
+        void Update()
         {
-            if (!IsNearPlayer() || Time.time - lastAttackTime < attackCooldown || currentState is not EnemyState.Attacking || punchFist.IsPunching)
-            {
-                return;
-            }
-            
-            PunchFist();
         }
 
-        private void PunchFist()
+        private void BuffEnemies()
         {
-            punchFist.Initialize(player, normalizedTrajectoryToPlayer);
-            punchFist.OnFinished += HandlePunchFinished;
+            //OnTriggerEnter2D(buffCollider);
         }
-        
-        private void HandlePunchFinished()
+
+        void OnTriggerEnter2D(Collider2D collision)
         {
-            lastAttackTime = Time.time;
-            punchFist.OnFinished -= HandlePunchFinished;
+            Debug.Log("Green Shield Target: " + collision.gameObject.tag);
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                collision.gameObject.GetComponent<Enemy>().ShieldYourself(collision.gameObject.GetComponentInParent<Enemy>().health);
+            }   
         }
     }
 }
