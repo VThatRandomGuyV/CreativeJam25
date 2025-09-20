@@ -10,7 +10,7 @@ public class UpgradeManager : MonoBehaviour
 
     private float xpToNextLevel = 100.0f;
 
-    private Slider xpBar;
+    [SerializeField] private Slider xpBar;
 
     [SerializeField] TextMeshProUGUI xpText;
     public UnityEvent OnLevelUp;
@@ -30,7 +30,6 @@ public class UpgradeManager : MonoBehaviour
     }
     void Start()
     {
-        xpBar = GetComponent<Slider>();
         xpBar.value = xp;
         xpText.text = xp + " / " + xpToNextLevel + " XP";
     }
