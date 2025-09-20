@@ -110,37 +110,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &906410110278490973
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2090973181079896069}
-  m_Layer: 9
-  m_Name: Shooting point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2090973181079896069
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906410110278490973}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.56, y: -0.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7496476180899592813}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1724998715142940986
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7496476180899592813}
+  - component: {fileID: 4832909605296664602}
   - component: {fileID: 1181669545835133422}
   - component: {fileID: 3479556103046260041}
   m_Layer: 9
@@ -242,10 +212,36 @@ Transform:
   m_Children:
   - {fileID: 7218387977919534807}
   - {fileID: 943779258991555487}
-  - {fileID: 2090973181079896069}
   - {fileID: 3550744899013733126}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4832909605296664602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2800850533861119925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b82fedeecac5b94d95bd869ad9fd30c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterCollider: {fileID: 7195770723300009198}
+  characterRigidbody: {fileID: 1181669545835133422}
+  characterSpriteRenderer: {fileID: 7431476227741332777}
+  health: 50
+  moveSpeed: 1
+  navMeshAgent: {fileID: 3479556103046260041}
+  levelColor: 2
+  attackRange: 1
+  attackDamage: 20
+  attackCooldown: 5
+  knockbackForce: 0.5
+  shieldHP: 0
+  buffed: 0
+  miniBluePrefab: {fileID: 0}
+  miniBlueCooldown: 15
 --- !u!50 &1181669545835133422
 Rigidbody2D:
   serializedVersion: 5

@@ -14,26 +14,19 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private int[] max;
     [SerializeField] private Transform enemyContainer;
     [SerializeField] private Transform weaponProjectileContainer;
+    [SerializeField] private Transform[] spawnPoints;
     
     private float lastEnemySpawnTime;
-    private bool isInitialized;
-    private int enemyCount;
+    private int totalEnemyCount;
     private int[] enemyCounts;
 
     public void Start()
     {
-        isInitialized = true;
         enemyCounts = new int[enemiesPrefabs.Length];
     }
 
-
-
-    private void Update()
+    private void FixedUpdate()
     {
-        if (!isInitialized)
-        {
-            return;
-        }
         if (lastEnemySpawnTime > 3f)
         {
             SpawnEnemy();
@@ -41,22 +34,25 @@ public class SpawnManager : MonoBehaviour
         }
         else
         {
-            lastEnemySpawnTime += Time.deltaTime;
+            lastEnemySpawnTime += Time.fixedDeltaTime;
         }
     }
 
     private void SpawnEnemy()
     {
-        if (enemyCount < 50) { 
+        if (totalEnemyCount < 50) { 
             int ranIndex;
             do
             {
                 ranIndex = Random.Range(0, enemiesPrefabs.Length);
             } while (enemyCounts[ranIndex] >= max[ranIndex]);
+
             enemyCounts[ranIndex]++;
-            var enemy = Instantiate(enemiesPrefabs[ranIndex]);
+
+            var enemy = Instantiate(enemiesPrefabs[ranIndex], spawnPoints[ranIndex].position, Quaternion.identity, enemyContainer);
             enemy.GetComponent<Enemy>().Initialize(Level.Instance.Player);
-            enemyCount++;
+
+            totalEnemyCount++;
         }
     }
 }

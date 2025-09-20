@@ -118,9 +118,6 @@ public class Level : MonoBehaviour
                 break;
         }
         levelInfo.totalEnemiesKillCount++;
-
-        // Notify Upgrade manager about the enemy killed count update
-        UpgradeManager.Instance.CheckEnemyKilledCount(color);
     }
 
     // Start

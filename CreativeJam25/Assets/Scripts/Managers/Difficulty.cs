@@ -34,9 +34,6 @@ namespace Combat
                 enemyCountMultiplier *= 1.5f;
                 spawnRateMultiplier *= 1.5f;
                 playerDamageMultiplier *= 1.5f;
-
-                // GIVE PLAYER UPGRADE POINT WHEN DIFFICULTY CHANGES
-                UpgradeManager.Instance.AwardUpgradePoint(color);
             }
         }
 
