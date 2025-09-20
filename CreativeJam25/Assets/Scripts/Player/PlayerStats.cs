@@ -22,6 +22,10 @@ public class PlayerStats : MonoBehaviour
 
     AudioSource audioSource; //reference to the audio source component
 
+    [SerializeField] AudioClip damageSound; //sound that plays when the plr takes damage
+
+    [SerializeField] AudioClip deathSound; //sound that plays when the plr dies
+
     RaycastHit2D voidAura;
     UnityEvent OnHealthChanged = new UnityEvent(); //event that triggers when health changes
 
@@ -70,13 +74,14 @@ public class PlayerStats : MonoBehaviour
             PlayerState.instance.currentState = PlayerState.PlayerStates.Dead;
             Debug.Log("Player died");
             OnDeath.Invoke();
+            audioSource.PlayOneShot(deathSound);
             //trigger death event
         }
         else
         {
             PlayerState.instance.currentState = PlayerState.PlayerStates.Damaged;
             Debug.Log("Player took damage, health is now: " + health);
-            audioSource.PlayOneShot(audioSource.clip);
+            audioSource.PlayOneShot(damageSound);
             StartCoroutine(InvicibilityFrames());
             StartCoroutine(BlinkRenderer());
             OnTakeDamage.Invoke();
