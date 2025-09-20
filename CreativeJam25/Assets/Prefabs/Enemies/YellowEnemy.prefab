@@ -164,10 +164,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7496476180899592813}
-  - component: {fileID: 1295115163563936685}
   - component: {fileID: 1181669545835133422}
   - component: {fileID: 7185461264111737214}
   - component: {fileID: 8137432422228675022}
+  - component: {fileID: 7642917121806060001}
   m_Layer: 9
   m_Name: YellowEnemy
   m_TagString: Enemy
@@ -193,30 +193,6 @@ Transform:
   - {fileID: 2705821247736983194}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1295115163563936685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2800850533861119925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b80710ca1d594807911abf263ecfc1bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterCollider: {fileID: 3755267944857636973}
-  characterRigidbody: {fileID: 1181669545835133422}
-  characterSpriteRenderer: {fileID: 7431476227741332777}
-  health: 50
-  moveSpeed: 5
-  navMeshAgent: {fileID: 8137432422228675022}
-  levelColor: 0
-  attackRange: 15
-  attackDamage: 1
-  attackCooldown: 3
-  knockbackForce: 0
-  enemyTriggerCollider: {fileID: 2753583407693914878}
 --- !u!50 &1181669545835133422
 Rigidbody2D:
   serializedVersion: 5
@@ -288,6 +264,37 @@ NavMeshAgent:
   m_BaseOffset: -0.32
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7642917121806060001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2800850533861119925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6699378135bc4c1781cd68ea5119f690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterCollider: {fileID: 0}
+  characterRigidbody: {fileID: 0}
+  characterSpriteRenderer: {fileID: 0}
+  health: 0
+  moveSpeed: 0
+  navMeshAgent: {fileID: 0}
+  levelColor: 0
+  attackRange: 0
+  attackDamage: 0
+  attackCooldown: 0
+  knockbackForce: 0
+  shieldHP: 0
+  buffed: 0
+  projectilePrefab: {fileID: 1192747416667966142, guid: 35a77c6499e75ed4a9db68ddb5299683, type: 3}
+  projectileCooldown: 3
+  projectileDamage: 10
+  projectileSpeed: 800
+  shootingPoint: {fileID: 0}
+  weaponProjectilContainer: {fileID: 0}
 --- !u!1 &8790138673599643072
 GameObject:
   m_ObjectHideFlags: 0

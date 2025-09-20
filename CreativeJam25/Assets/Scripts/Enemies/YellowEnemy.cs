@@ -21,7 +21,7 @@ namespace Characters
         private bool projectileToggle;
         private Transform weaponProjectileContainer;
 
-        private readonly List<Bullet> raindropBullets = new();
+        private readonly List<Bullet> lazers = new();
 
         public void Start()
         {
@@ -39,7 +39,7 @@ namespace Characters
             }
 
             projectileToggle = toggle;
-            foreach (var raindropBullet in raindropBullets)
+            foreach (var raindropBullet in lazers)
             {
                 raindropBullet.SetActive(toggle);
             }
@@ -55,11 +55,11 @@ namespace Characters
             // Flip the spawn point of the projectile
             shootingPoint.transform.position = transform.position + (Vector3)trajectory * 0.5f;
             shootingPoint.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(trajectory.y, trajectory.x) * Mathf.Rad2Deg);
-            
-            SpawnRainDropProjectile();
+
+            SpawnLazerProjectile();
         }
 
-        private void SpawnRainDropProjectile()
+        private void SpawnLazerProjectile()
         {
             if (timer == null || timer.time <= 0f)
             {
@@ -80,8 +80,8 @@ namespace Characters
                 
                 var bullet = Instantiate(projectilePrefab, shootingPoint.transform.position, prefabRotation, weaponProjectileContainer);
                 var bulletComponent = bullet.GetComponent<Bullet>();
-                bulletComponent.Initialize(trajectoryVector, "BlueEnemy", projectileSpeed, projectileDamage);
-                raindropBullets.Add(bulletComponent);
+                bulletComponent.Initialize(trajectoryVector, "YellowEnemy", projectileSpeed, projectileDamage);
+                lazers.Add(bulletComponent);
             }
             timer.Tick(Time.fixedDeltaTime);
         }
