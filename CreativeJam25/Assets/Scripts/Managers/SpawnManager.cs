@@ -138,7 +138,7 @@ public class SpawnManager : MonoBehaviour
 
     public void SetLevelColor(LevelColor levelColor)
     {
-        HideCurrentEnemies();
+        // HideCurrentEnemies();
         
         currentLevelColor = levelColor;
         if (GetLevelDataIndex(currentLevelColor) == -1)

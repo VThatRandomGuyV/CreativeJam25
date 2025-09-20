@@ -312,7 +312,7 @@ namespace Characters
 
         public void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log("Collision with: " + collision.gameObject.name);
+            // Debug.Log("Collision with: " + collision.gameObject.name);
         }
 
         internal void SetPlayerSpeed(float magnitude)

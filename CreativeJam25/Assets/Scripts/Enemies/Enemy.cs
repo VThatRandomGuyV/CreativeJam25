@@ -102,6 +102,8 @@ namespace Characters
         private IEnumerator ShieldDurationCoroutine()
         {
             yield return new WaitForSeconds(shieldDuration);
+            buffed = false;
+            shieldHP = 0f;
         }
 
         internal void ShieldYourself(float shieldAmount)

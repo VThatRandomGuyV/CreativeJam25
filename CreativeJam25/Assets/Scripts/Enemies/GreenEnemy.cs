@@ -5,40 +5,31 @@ using Utility;
 
 namespace Characters
 {
+    [RequireComponent(typeof(Collider2D))]
     public class GreenEnemy : Enemy
     {
         [Header(nameof(GreenEnemy))]
-        [SerializeField] private Collider2D buffCollider;
+        [SerializeField] private Collider2D punchFistCollider;
+        [SerializeField] private Collider2D punchFistColliderTrigger;
 
-        private readonly List<Enemy> _shieldedEnemies = new();
+        private Collider2D buffTriggerCollider;
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            buffCollider = GetComponent<Collider2D>();
-            if (!buffCollider)
-            {
-                Debug.Log("buff collider is null");
-            }
-
             Initialize(Level.Instance.Player, null);
-        }
 
-        // Update is called once per frame
-        void Update()
-        {
-        }
-
-        private void BuffEnemies()
-        {
-            //OnTriggerEnter2D(buffCollider);
+            buffTriggerCollider = GetComponent<Collider2D>();
+            Physics2D.IgnoreCollision(punchFistCollider, buffTriggerCollider);
+            Physics2D.IgnoreCollision(punchFistColliderTrigger, buffTriggerCollider);
         }
 
         void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("Green Shield Target: " + collision.gameObject.tag);
+            // Debug.Log("Green Shield Target: " + collision.gameObject.tag);
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                collision.gameObject.GetComponent<Enemy>().ShieldYourself(collision.gameObject.GetComponentInParent<Enemy>().health);
+                collision.gameObject.GetComponentInParent<Enemy>().ShieldYourself(50f);
             }   
         }
     }
