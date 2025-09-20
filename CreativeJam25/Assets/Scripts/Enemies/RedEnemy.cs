@@ -4,9 +4,9 @@ using Utility;
 
 namespace Characters
 {
-    public class BlueEnemy : Enemy
+    public class RedEnemy : Enemy
     {
-        [Header(nameof(BlueEnemy))]
+        [Header(nameof(RedEnemy))]
         [SerializeField] private GameObject lavaPoolPrefab;
         [SerializeField] private float lavaPoolCooldown;
         
