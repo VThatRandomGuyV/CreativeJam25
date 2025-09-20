@@ -679,6 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   speed: 5
+  voidRadius: 0.75
 --- !u!1 &1834786955
 GameObject:
   m_ObjectHideFlags: 0
