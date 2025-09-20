@@ -48,13 +48,16 @@ namespace Characters
             lastAttackTime = Time.time;
             currentState = EnemyState.Attacking;
             gameObject.tag = "Enemy";
+
+            // Nav Mesh Agent settings
+            navMeshAgent.speed = moveSpeed;
+            navMeshAgent.updateRotation = false;
+            navMeshAgent.updateUpAxis = false;
         }
 
         private void Start()
         {
-            navMeshAgent.speed = moveSpeed;
-            navMeshAgent.updateRotation = false;
-            navMeshAgent.updateUpAxis = false;
+
         }
 
         private void FixedUpdate()
