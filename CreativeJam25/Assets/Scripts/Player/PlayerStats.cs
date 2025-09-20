@@ -37,28 +37,10 @@ public class PlayerStats : MonoBehaviour
     {
         voidAura = Physics2D.CircleCast(transform.position, voidRadius, Vector2.zero, 0);
 
-        //When I click spacebar, take 10 damage
+        //When you press Spacebar take damage
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Spacebar pressed, taking 10 damage");
             TakeDamage(10.0f);
-        }
-
-        if (PlayerState.instance.currentState == PlayerState.PlayerStates.Damaged)
-        {
-            if (blinkDuration > 0.0f)
-            {
-                blinkDuration -= Time.deltaTime;
-            }
-            else
-            {
-                spriteRenderer.enabled = !spriteRenderer.enabled;
-                blinkDuration = blinkCooldown;
-            }
-        }
-        else
-        {
-            spriteRenderer.enabled = true;
         }
     }
 
@@ -92,6 +74,7 @@ public class PlayerStats : MonoBehaviour
             PlayerState.instance.currentState = PlayerState.PlayerStates.Damaged;
             Debug.Log("Player took damage, health is now: " + health);
             StartCoroutine(InvicibilityFrames());
+            StartCoroutine(BlinkRenderer());
             OnTakeDamage.Invoke();
             //trigger damaged event
         }
@@ -119,5 +102,23 @@ public class PlayerStats : MonoBehaviour
         blinkDuration = blinkCooldown;
         yield return new WaitForSeconds(invincibilityDuration);
         PlayerState.instance.currentState = PlayerState.PlayerStates.Normal;
+    }
+
+    private IEnumerator BlinkRenderer()
+    {
+        while (PlayerState.instance.currentState == PlayerState.PlayerStates.Damaged)
+        {
+            if (blinkDuration > 0.0f)
+            {
+                blinkDuration -= Time.deltaTime;
+            }
+            else
+            {
+                spriteRenderer.enabled = !spriteRenderer.enabled;
+                blinkDuration = blinkCooldown;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+        spriteRenderer.enabled = true;
     }
 }
