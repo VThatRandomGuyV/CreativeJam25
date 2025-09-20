@@ -15,9 +15,7 @@ public class UpgradeUI : MonoBehaviour
     public void OpenUpgradeMenu()
     {
         gameObject.SetActive(true);
-        Time.timeScale = 0f; // Pause the game
-                             // Switch to the UI input map
-                             //Randomly select upgrades for panels.
+        //Change gamestart to InGameMenu state
         UpgradeRandomizer();
     }
 
@@ -33,13 +31,17 @@ public class UpgradeUI : MonoBehaviour
             TextMeshProUGUI description = upgradePanels[i].transform.Find("Description").GetComponent<TextMeshProUGUI>();
             title.text = "Upgrade " + (i + 1);
             description.text = "This is a description of upgrade " + (i + 1);
+            //Attach the upgrade to the panel (Assume the upgrade is a prefab with a script called Upgrade that has a method called ApplyUpgrade)
         }
     }
 
     public void CloseUpgradeMenu()
     {
+        //Which button was pressed?
+        //Apply the upgrade to the player.
+        //Close the menu and resume the game.
         gameObject.SetActive(false);
         Time.timeScale = 1f; // Resume the game
-                             // Switch back to the gameplay input map
+        //Change gamestate back to Level
     }
 }
