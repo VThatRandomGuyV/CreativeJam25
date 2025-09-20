@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rigid { get; private set; } // the rigid body attached to the player
 
+    public CircleCollider2D col; // the collider attached to the player
+
     PlayerStats stats; // reference to the player stats script
 
     Vector3 velocityVector; // the direction the plr is moving in. This is a unit vector so it only gives direction, not speed

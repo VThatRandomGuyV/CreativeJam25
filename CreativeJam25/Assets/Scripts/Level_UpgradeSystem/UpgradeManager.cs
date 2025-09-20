@@ -37,11 +37,7 @@ public class UpgradeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //When I click the space bar, add 10 XP
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddXP(10.0f);
-        }
+        
     }
 
     public void AddXP(float amount)

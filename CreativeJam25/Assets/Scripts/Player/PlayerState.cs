@@ -23,11 +23,12 @@ public class PlayerState : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        currentState = PlayerStates.Normal;
     }
 
     void Start()
     {
-        currentState = PlayerStates.Normal;
     }
 
 
