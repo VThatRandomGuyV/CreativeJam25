@@ -2,8 +2,10 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Enemy
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -11,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ignore enemy
   - 
   - 
   - 
@@ -38,6 +40,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Map
+    uniqueID: 3816023849
+    locked: 0
+  - name: Collison
+    uniqueID: 852465419
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UI
+    uniqueID: 530899847
+    locked: 0
+  m_RenderingLayers:
+  - Default
