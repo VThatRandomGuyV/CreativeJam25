@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ec80d9e1f94af0059e03233b38cff53, type: 3}
-  m_Name: VoidAuraUpgrade
+  m_Name: Void Aura Upgrade
   m_EditorClassIdentifier: 
+  upgradeName: Void Aura
   upgradeAmount: 0
   upgradeType: 2

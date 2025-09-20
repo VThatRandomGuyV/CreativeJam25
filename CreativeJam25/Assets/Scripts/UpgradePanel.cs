@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class UpgradePanel : MonoBehaviour
 {
-    TextMeshProUGUI title;
-    TextMeshProUGUI description;
+    [SerializeField] TextMeshProUGUI title;
+    [SerializeField] TextMeshProUGUI description;
 
     Upgrade upgrade;
 
@@ -12,8 +12,10 @@ public class UpgradePanel : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        title = transform.Find("Title").GetComponent<TextMeshProUGUI>();
-        description = transform.Find("Description").GetComponent<TextMeshProUGUI>();
+        if (description == null)
+        {
+            Debug.LogError("Description not found in UpgradePanel");
+        }
         //Setup a button listener for the button in this panel
         GetComponent<UnityEngine.UI.Button>().onClick.AddListener(OnClick);
     }

@@ -305,6 +305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01799c3405675c18a8a90265dce0fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 1583021719}
+  description: {fileID: 2038908801}
 --- !u!1 &129179485
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,6 +869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01799c3405675c18a8a90265dce0fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 722298802}
+  description: {fileID: 1752328576}
 --- !u!1 &722298800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,7 +1208,11 @@ MonoBehaviour:
   - {fileID: 1311138553}
   - {fileID: 581601810}
   - {fileID: 9212927}
-  upgrades: []
+  upgrades:
+  - {fileID: 11400000, guid: a967743b2e3e3d9f490c95d128452299, type: 2}
+  - {fileID: 11400000, guid: 1849edc3fa87bee29aaf1c6498b4221a, type: 2}
+  - {fileID: 11400000, guid: 82fc1e05a0fb1ca08884e403c2072e09, type: 2}
+  unSelectedUpgrades: []
 --- !u!114 &1030556971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1591,6 +1599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01799c3405675c18a8a90265dce0fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 1067292148}
+  description: {fileID: 515338045}
 --- !u!1 &1583021717
 GameObject:
   m_ObjectHideFlags: 0
