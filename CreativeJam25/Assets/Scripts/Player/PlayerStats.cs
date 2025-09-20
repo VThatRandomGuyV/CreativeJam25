@@ -20,6 +20,8 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private float blinkCooldown = 0.5f;
 
+    AudioSource audioSource; //reference to the audio source component
+
     RaycastHit2D voidAura;
     UnityEvent OnHealthChanged = new UnityEvent(); //event that triggers when health changes
 
@@ -31,6 +33,7 @@ public class PlayerStats : MonoBehaviour
     {
         health = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -73,6 +76,7 @@ public class PlayerStats : MonoBehaviour
         {
             PlayerState.instance.currentState = PlayerState.PlayerStates.Damaged;
             Debug.Log("Player took damage, health is now: " + health);
+            audioSource.PlayOneShot(audioSource.clip);
             StartCoroutine(InvicibilityFrames());
             StartCoroutine(BlinkRenderer());
             OnTakeDamage.Invoke();
