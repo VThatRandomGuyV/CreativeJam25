@@ -21,26 +21,26 @@ public class StatUpgrade : Upgrade
     public override void ApplyUpgrade(GameObject player)
     {
 
-        /*PlayerStats stats = player.GetComponent<PlayerStats>();
+        PlayerStats stats = player.GetComponent<PlayerStats>();
         if (stats == null)
         {
             Debug.LogError("PlayerStats component not found on player.");
             return;
-        }*/
+        }
 
         switch (upgradeType)
         {
             case StatUpgradeType.Health:
                 Debug.Log("Applying Health Upgrade by ");
-                //stats.IncreaseMaxHealth(upgradeAmount);
+                stats.IncreaseMaxHealth(upgradeAmount);
                 break;
             case StatUpgradeType.Speed:
                 Debug.Log("Applying Speed Upgrade by ");
-                //stats.IncreaseSpeed(upgradeAmount);
+                stats.IncreaseSpeed(upgradeAmount);
                 break;
             case StatUpgradeType.VoidAura:
                 Debug.Log("Applying Void Aura Upgrade by ");
-                //stats.IncreaseVoidAura(upgradeAmount);
+                stats.IncreaseVoidAura(upgradeAmount);
                 break;
             default:
                 Debug.LogError("Unknown upgrade type.");

@@ -30,6 +30,6 @@ public class UpgradePanel : MonoBehaviour
     public void OnClick()
     {
         Debug.Log("Upgrade " + panelUpgrade.Name + " selected!");
-        //panelUpgrade.ApplyUpgrade(Player.Instance.gameObject);
+        panelUpgrade.ApplyUpgrade(player: GameObject.FindWithTag("Player"));
     }
 }

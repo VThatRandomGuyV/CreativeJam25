@@ -30,6 +30,7 @@ public class UpgradeUI : MonoBehaviour
             unSelectedUpgrades.Add(upgrades[i]);
         }
         //Change gamestart to InGameMenu state
+        Time.timeScale = 0f; // Pause the game
         UpgradeRandomizer();
     }
 

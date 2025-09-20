@@ -4,15 +4,17 @@ using UnityEngine;
 
 // hello :D
 
-public class walkingIdkIWillRenameItLater : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rigid { get; private set; } // the rigid body attached to the player
 
+    PlayerStats stats; // reference to the player stats script
+
     Vector3 velocityVector; // the direction the plr is moving in. This is a unit vector so it only gives direction, not speed
-    [SerializeField] private int speed; //how fast the plr moves. Feel free to turn it to a float if you want idc. Idk how fast or slow you want the guy to move
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>(); // gets the rigid body component
+        stats = GetComponent<PlayerStats>(); // gets the player stats component
     }
     void Update()
     {
@@ -24,7 +26,7 @@ public class walkingIdkIWillRenameItLater : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigid.linearVelocity = velocityVector * speed; // sets the velocity, tweak speed in the properties of the script
+        rigid.linearVelocity = velocityVector * stats.speed; // sets the velocity, tweak speed in the properties of the script
     }
 }
 
