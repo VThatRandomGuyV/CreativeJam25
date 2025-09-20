@@ -32,27 +32,6 @@ namespace Characters
         protected override void MoveTowardsPlayer()
         {
             base.MoveTowardsPlayer();
-            
-            //SpawnLavaPool();
         }
-
-        //private void SpawnLavaPool()
-        //{
-        //    if (!lavaPoolPrefab)
-        //    {
-        //        Debug.LogError("Lava pool prefab not set.");
-        //        return;
-        //    }
-
-        //    if (!(Time.time - lastLavaPoolSpawnTime > lavaPoolCooldown))
-        //    {
-        //        return;
-        //    }
-            
-        //    lastLavaPoolSpawnTime = Time.time;
-        //    var lavaPool = Instantiate(lavaPoolPrefab, transform.position, transform.rotation);
-        //    lavaPool.transform.SetParent(weaponProjectileContainer);
-        //    lavaPools.Add(lavaPool.GetComponent<LavaPool>());
-        //}
     }
 }
