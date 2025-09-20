@@ -4,7 +4,7 @@ using UnityEngine;
 
 // hello :D
 
-public class walkingIdkIWillRenameItLater : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rigid { get; private set; } // the rigid body attached to the player
 
