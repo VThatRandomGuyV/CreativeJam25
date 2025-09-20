@@ -8,6 +8,9 @@ public class PlayerStats : MonoBehaviour
     public float maxHealth; //max health the plr can have
     public float speed; //how fast the plr moves. Feel free to turn it to a float if you want idc. Idk how fast or slow you want the guy to move
 
+    public float voidRadius;
+
+    RaycastHit2D voidAura;
     UnityEvent OnHealthChanged = new UnityEvent(); //event that triggers when health changes
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,11 +18,26 @@ public class PlayerStats : MonoBehaviour
         health = maxHealth;
     }
 
+    void Update()
+    {
+        voidAura = Physics2D.CircleCast(transform.position, voidRadius, Vector2.zero, 0);
+        if (voidAura.collider != null)
+        {
+            TakeDamage(0.1f);
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, voidRadius);   
+    }
+
     public void TakeDamage(float damage)
     {
         health -= damage;
         OnHealthChanged.Invoke();
-        if (health <= 0)
+        /*if (health <= 0)
         {
             PlayerState.instance.currentState = PlayerState.PlayerStates.Dead;
             //trigger death event
@@ -28,7 +46,7 @@ public class PlayerStats : MonoBehaviour
         {
             PlayerState.instance.currentState = PlayerState.PlayerStates.Damaged;
             //trigger damaged event
-        }
+        }*/
     }
 
     public void IncreaseMaxHealth(float amount)
@@ -42,9 +60,10 @@ public class PlayerStats : MonoBehaviour
     {
         speed *= 1 + (amount / 100);
     }
-    
+
     public void IncreaseVoidAura(float amount)
     {
         //increase void aura radius
+        voidRadius *= 1 + (amount / 100);
     }
 }
