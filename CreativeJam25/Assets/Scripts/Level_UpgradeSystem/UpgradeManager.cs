@@ -13,6 +13,8 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private Slider xpBar;
 
     [SerializeField] TextMeshProUGUI xpText;
+
+    AudioSource audioSource; //reference to the audio source component
     public UnityEvent OnLevelUp;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -32,12 +34,16 @@ public class UpgradeManager : MonoBehaviour
     {
         xpBar.value = xp;
         xpText.text = xp + " / " + xpToNextLevel + " XP";
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            AddXP(50.0f);
+        }
     }
 
     public void AddXP(float amount)
@@ -51,6 +57,7 @@ public class UpgradeManager : MonoBehaviour
             //Make the next level require more xp based on an exponential scale
             xpToNextLevel *= 1.5f;
             OnLevelUp.Invoke();
+            audioSource.PlayOneShot(audioSource.clip);
             xpBar.value = xp / xpToNextLevel;
             xpText.text = xp + " / " + xpToNextLevel + " XP";
         }

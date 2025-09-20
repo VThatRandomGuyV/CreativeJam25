@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 using System.Collections.Generic;
 
 public class UpgradeUI : MonoBehaviour
@@ -8,8 +9,12 @@ public class UpgradeUI : MonoBehaviour
     public GameObject[] upgradePanels = new GameObject[3];
 
     [SerializeField] private Upgrade[] upgrades; // Array to hold the upgrades
-    
+
     public List<Upgrade> unSelectedUpgrades = new List<Upgrade>();
+
+    AudioSource audioSource; //reference to the audio source component
+
+    [SerializeField] AudioClip buttonSound;
 
     public void Start()
     {
@@ -19,13 +24,14 @@ public class UpgradeUI : MonoBehaviour
             upgradePanels[i].GetComponent<UpgradePanel>().GetComponent<Button>().onClick.AddListener(CloseUpgradeMenu);
         }
         gameObject.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void OpenUpgradeMenu()
     {
         gameObject.SetActive(true);
         //Reset the unSelected upgrades
-        for(int i=0; i < upgrades.Length; i++)
+        for (int i = 0; i < upgrades.Length; i++)
         {
             unSelectedUpgrades.Add(upgrades[i]);
         }
@@ -51,13 +57,20 @@ public class UpgradeUI : MonoBehaviour
                 statUpgrade.UpgradeAmount = Random.Range(1, 100); // Random amount between 5% and 20%
                 randomUpgrade.Description = "Increases " + statUpgrade.GetType().Name + " by " + statUpgrade.UpgradeAmount + "%";
             }
-                upgradePanels[i].GetComponent<UpgradePanel>().SetUpgrade(randomUpgrade);
+            upgradePanels[i].GetComponent<UpgradePanel>().SetUpgrade(randomUpgrade);
             unSelectedUpgrades.RemoveAt(upgradeIndex);
         }
     }
 
     public void CloseUpgradeMenu()
     {
+        StartCoroutine(PlayButtonSoundAndClose());
+    }
+
+    public IEnumerator PlayButtonSoundAndClose()
+    {
+        audioSource.PlayOneShot(audioSource.clip = buttonSound);
+        yield return new WaitForSecondsRealtime(0.37f);
         gameObject.SetActive(false);
         Time.timeScale = 1f; // Resume the game
         //Change gamestate back to Level
