@@ -59,6 +59,10 @@ public class UpgradeUI : MonoBehaviour
                 statUpgrade.UpgradeAmount = Random.Range(1, 100); // Random amount between 5% and 20%
                 randomUpgrade.Description = "Increases " + statUpgrade.upgradeType + " by " + statUpgrade.UpgradeAmount + "%";
             }
+            else if (randomUpgrade is WeaponUpgrade weaponUpgrade)
+            {
+                randomUpgrade.Description = "Increases " + weaponUpgrade.GetType().Name + "'s level by 1";
+            }
             upgradePanels[i].GetComponent<UpgradePanel>().SetUpgrade(randomUpgrade);
             unSelectedUpgrades.RemoveAt(upgradeIndex);
         }

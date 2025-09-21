@@ -27,20 +27,6 @@ namespace Characters
             }
         }
 
-        protected override void ToggleProjectiles(bool toggle)
-        {
-            if (projectileToggle == toggle)
-            {
-                return;
-            }
-
-            projectileToggle = toggle;
-            foreach (var raindropBullet in lazers)
-            {
-                raindropBullet.SetActive(toggle);
-            }
-        }
-
         protected override void MoveTowardsPlayer()
         {
             base.MoveTowardsPlayer();
