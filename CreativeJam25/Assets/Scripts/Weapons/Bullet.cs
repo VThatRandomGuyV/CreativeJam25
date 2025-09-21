@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 using Characters;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
 public class Bullet : MonoBehaviour
 {
     public float damage;
@@ -21,19 +23,22 @@ public class Bullet : MonoBehaviour
 
     public void Initialize(Vector3 trajectory, string bulletOwner, float speed = 2000f, float damage = 10f)
     {
+        rb = GetComponent<Rigidbody2D>();
+        bulletCollider = GetComponent<CapsuleCollider2D>();
+
         if (bulletOwner.Contains("Player"))
         {
             shotByPlayer = true;
+            bulletCollider.excludeLayers = LayerMask.GetMask("Player");
         }
         else if (bulletOwner.Contains("Enemy"))
         {
             shotByPlayer = false;
+            bulletCollider.excludeLayers = LayerMask.GetMask("Enemy");
         }
         
         // Set the trajectory of the bullet
         this.trajectory = trajectory.normalized;
-
-        rb = GetComponent<Rigidbody2D>();
     }
     void Start()
     {
@@ -41,7 +46,6 @@ public class Bullet : MonoBehaviour
         {
             rb = GetComponent<Rigidbody2D>();
         }
-        bulletCollider = GetComponent<CapsuleCollider2D>();
         ricochet = 0;
         rb.linearVelocity = Vector2.zero;
         isActive = true;
