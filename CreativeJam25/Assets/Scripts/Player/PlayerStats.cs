@@ -96,9 +96,11 @@ public class PlayerStats : MonoBehaviour
         OnHealthChanged.Invoke();
         if (Health <= 0)
         {
+            Debug.Log("Player died");
+
             Health = 0;
             PlayerState.instance.currentState = PlayerState.PlayerStates.Dead;
-            Debug.Log("Player died");
+            Level.Instance.levelEndTime = System.DateTime.Now;
             OnDeath.Invoke();
             audioSource.PlayOneShot(deathSound);
             //trigger death event
