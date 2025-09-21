@@ -291,24 +291,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
+      propertyPath: maxEnemy
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
       propertyPath: spawnCooldown
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
       propertyPath: 'maxEnemyCounts.Array.data[0]'
-      value: 100
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
       propertyPath: 'maxEnemyCounts.Array.data[1]'
-      value: 5
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
       propertyPath: 'maxEnemyCounts.Array.data[2]'
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
       propertyPath: 'maxEnemyCounts.Array.data[3]'
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8797374371094408825, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
       propertyPath: m_LocalPosition.x

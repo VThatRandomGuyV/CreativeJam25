@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,6 +6,9 @@ using UnityEngine;
 
 public class StatUpgrade : Upgrade
 {
+    private int SpeedUpgradeCount = 0;
+    private int VoidAuraUpgradeCount = 0;
+
     public enum StatUpgradeType
     {
         Health,
@@ -39,10 +43,12 @@ public class StatUpgrade : Upgrade
                 stats.IncreaseMaxHealth(upgradeAmount);
                 break;
             case StatUpgradeType.Speed:
-                stats.IncreaseSpeed(upgradeAmount);
+                stats.IncreaseSpeed(upgradeAmount - SpeedUpgradeCount * 2);
+                SpeedUpgradeCount++;
                 break;
             case StatUpgradeType.VoidAura:
-                stats.IncreaseVoidAura(upgradeAmount);
+                stats.IncreaseVoidAura(upgradeAmount - VoidAuraUpgradeCount * 2);
+                VoidAuraUpgradeCount++;
                 break;
             default:
                 Debug.LogError("Unknown upgrade type.");
