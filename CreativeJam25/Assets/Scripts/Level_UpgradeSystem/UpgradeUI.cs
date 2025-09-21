@@ -16,6 +16,8 @@ public class UpgradeUI : MonoBehaviour
 
     [SerializeField] AudioClip buttonSound;
 
+    public UnityEngine.Events.UnityEvent OnUpgradeSelected = new();
+
     public void Start()
     {
         UpgradeManager.Instance.OnLevelUp.AddListener(OpenUpgradeMenu);
@@ -65,6 +67,7 @@ public class UpgradeUI : MonoBehaviour
     public void CloseUpgradeMenu()
     {
         StartCoroutine(PlayButtonSoundAndClose());
+        OnUpgradeSelected.Invoke();
     }
 
     public IEnumerator PlayButtonSoundAndClose()

@@ -5,6 +5,8 @@ using System.Collections;
 [RequireComponent(typeof(AudioSource))]
 public class PlayerStats : MonoBehaviour
 {
+    public static PlayerStats instance; //singleton instance
+    
     public float Health { get; private set; } //how much health the plr has. Feel free to turn it to a float if you want idc;
 
     public float maxHealth; //max health the plr can have
@@ -26,17 +28,31 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] AudioClip deathSound; //sound that plays when the plr dies
 
     RaycastHit2D voidAura;
-    UnityEvent OnHealthChanged = new(); //event that triggers when health changes
+    public UnityEvent OnHealthChanged = new(); //event that triggers when health changes
 
-    UnityEvent OnTakeDamage = new(); //event that triggers when the player takes damage
+    public UnityEvent OnTakeDamage = new(); //event that triggers when the player takes damage
 
-    UnityEvent OnDeath = new(); //event that triggers when the player dies
+    public UnityEvent OnDeath = new(); //event that triggers when the player dies
 
     private float blinkDuration; //how fast the plr blinks when invincible
 
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        Health = maxHealth;
+    }
+
     void Start()
     {
-        Health = maxHealth;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -98,8 +114,12 @@ public class PlayerStats : MonoBehaviour
 
     public void IncreaseMaxHealth(float amount)
     {
+        float currentHealth = Health;
+        float currentMaxHealth = maxHealth;
+        //boost max health by amount percent
         maxHealth *= 1 + (amount / 100);
-        Health *= 1 + (amount / 100);
+        // Keep the same percentage of health after increasing max health
+        Health = (currentHealth / currentMaxHealth) * maxHealth;
         OnHealthChanged.Invoke();
     }
 
