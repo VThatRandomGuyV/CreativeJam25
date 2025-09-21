@@ -53,10 +53,6 @@ public class UpgradeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            AddXP(50.0f);
-        }
 
         // Set time survived text
         TimeSpan timeSurvived = Level.Instance.timeSurvived;
