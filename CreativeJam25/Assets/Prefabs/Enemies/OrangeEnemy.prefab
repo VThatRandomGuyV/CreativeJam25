@@ -329,6 +329,7 @@ MonoBehaviour:
   shieldHP: 0
   buffed: 0
   shieldSpriteRenderer: {fileID: 4081447614200234386}
+  itemDropPrefab: {fileID: 4164427469167405418, guid: 0161b76a3ceb12548ab2c8b1f03c9457, type: 3}
   projectilePrefab: {fileID: 1192747416667966142, guid: 35a77c6499e75ed4a9db68ddb5299683, type: 3}
   projectileCooldown: 3
   projectileDamage: 10

@@ -242,6 +242,7 @@ MonoBehaviour:
   shieldHP: 0
   buffed: 0
   shieldSpriteRenderer: {fileID: 2890735105089585363}
+  itemDropPrefab: {fileID: 4164427469167405418, guid: 0161b76a3ceb12548ab2c8b1f03c9457, type: 3}
   punchFistCollider: {fileID: 0}
   punchFistColliderTrigger: {fileID: 0}
 --- !u!50 &1181669545835133422
@@ -5192,7 +5193,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7496476180899592813}

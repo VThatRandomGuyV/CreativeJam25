@@ -5087,6 +5087,7 @@ MonoBehaviour:
   shieldHP: 0
   buffed: 0
   shieldSpriteRenderer: {fileID: 5127657467585556595}
+  itemDropPrefab: {fileID: 4164427469167405418, guid: 0161b76a3ceb12548ab2c8b1f03c9457, type: 3}
   lavaPoolPrefab: {fileID: 5205888642912483777, guid: 00706da32cd802743b93f9dc3cb0a11a, type: 3}
   lavaPoolCooldown: 0.35
 --- !u!50 &1181669545835133422

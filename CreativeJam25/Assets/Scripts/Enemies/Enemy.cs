@@ -19,18 +19,20 @@ namespace Characters
         [Header("Knockback 0.25f - 2.0f")]
         [SerializeField] private float knockbackForce;
 
-
         [Header("Shield")]
         [SerializeField] protected float shieldHP;
         [SerializeField] private bool buffed = false;
         [SerializeField] protected SpriteRenderer shieldSpriteRenderer;
+
+        [Header("Item Drop")]
+        [SerializeField] private GameObject itemDropPrefab;
 
         protected EnemyState currentState;
         protected PlayerStats player;
         protected float lastAttackTime;
         protected Vector2 playerPosition;
         protected Vector2 normalizedTrajectoryToPlayer;
-        protected float shieldDuration = 5f;
+        protected float shieldDuration = 10f;
 
         public Collider2D EnemyCollider => characterCollider;
         public SpriteRenderer SpriteRenderer => GetComponentInChildren<SpriteRenderer>();
@@ -158,6 +160,12 @@ namespace Characters
                 health -= damageTaken;
             }
 
+            // Death
+            if (health <= 0)
+            {
+                Death();
+                return;
+            }
 
             // Knockback effect
             var knockbackDirection = (Vector2)transform.position - playerPosition;
@@ -181,6 +189,12 @@ namespace Characters
             characterRigidbody.freezeRotation = false;
             characterCollider.enabled = false;
             currentState = EnemyState.Dead;
+
+            // Instantiate item drop
+            if (itemDropPrefab)
+            {
+                Instantiate(itemDropPrefab, transform.position, Quaternion.identity);
+            }
             
             // Destroy the enemy object after a delay
             Destroy(gameObject, 2f);

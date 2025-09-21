@@ -242,6 +242,7 @@ MonoBehaviour:
   shieldHP: 0
   buffed: 0
   shieldSpriteRenderer: {fileID: 1026879843307291911}
+  itemDropPrefab: {fileID: 4164427469167405418, guid: 0161b76a3ceb12548ab2c8b1f03c9457, type: 3}
   miniBluePrefab: {fileID: 2800850533861119925, guid: 77ca13367cae6464d87c0704405cc94d, type: 3}
   minionsContainer: {fileID: 2097985669912626626}
   minionsCooldown: 20
