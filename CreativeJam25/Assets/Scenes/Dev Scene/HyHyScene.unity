@@ -23439,6 +23439,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4999739616347691578, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999739616347691578, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999739616347691578, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584531580417320869, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
+      propertyPath: ShapeModule.m_Position.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584531580417320869, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584531580417320869, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7277709363797054526, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9
