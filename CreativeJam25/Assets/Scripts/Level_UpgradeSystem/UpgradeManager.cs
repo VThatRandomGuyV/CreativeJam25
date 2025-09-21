@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -19,9 +20,10 @@ public class UpgradeManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI levelText;
 
-    [Header("Enemy Kills")]
+    [Header("Score & Time Survived")]
     public int enemiesKilled = 0;
     public TextMeshProUGUI enemiesKilledText;
+    public TextMeshProUGUI timeSurvivedText;
 
     private AudioSource audioSource; //reference to the audio source component
     public UnityEvent OnLevelUp;
@@ -44,16 +46,21 @@ public class UpgradeManager : MonoBehaviour
         xpBar.value = xp;
         xpText.text = xp + " / " + xpToNextLevel + " XP";
         levelText.text = "Level "+PlayerStats.instance.level;
+        enemiesKilledText.text = enemiesKilled + " killed";
         audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             AddXP(50.0f);
         }
+
+        // Set time survived text
+        TimeSpan timeSurvived = Level.Instance.timeSurvived;
+        timeSurvivedText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", timeSurvived.Hours, timeSurvived.Minutes, timeSurvived.Seconds);
     }
 
     public void SetLevelText(int level)
