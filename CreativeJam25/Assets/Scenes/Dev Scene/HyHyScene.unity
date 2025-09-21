@@ -23453,11 +23453,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5584531580417320869, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
       propertyPath: ShapeModule.m_Position.x
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5584531580417320869, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5584531580417320869, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
       propertyPath: InitialModule.startSpeed.scalar

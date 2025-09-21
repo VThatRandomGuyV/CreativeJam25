@@ -24,7 +24,7 @@ public class AuraManager : MonoBehaviour
 
             // Update particle system shape x position
             var shape = auraParticleSystem.shape;
-            shape.position = new Vector3(voidRadius/4, 1f, 1f);
+            shape.position = new Vector3(voidRadius / 4, 1f, 1f);
         }
     }
 }
