@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private Slider xpBar;
 
     [SerializeField] TextMeshProUGUI xpText;
+
+    [SerializeField] TextMeshProUGUI levelText;
 
     AudioSource audioSource; //reference to the audio source component
     public UnityEvent OnLevelUp;
@@ -34,6 +37,7 @@ public class UpgradeManager : MonoBehaviour
     {
         xpBar.value = xp;
         xpText.text = xp + " / " + xpToNextLevel + " XP";
+        levelText.text = "Level "+PlayerStats.instance.level;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -44,6 +48,11 @@ public class UpgradeManager : MonoBehaviour
         {
             AddXP(50.0f);
         }
+    }
+
+    public void SetLevelText(int level)
+    {
+        levelText.text = "Level " + level;
     }
 
     public void AddXP(float amount)
@@ -61,6 +70,7 @@ public class UpgradeManager : MonoBehaviour
             audioSource.PlayOneShot(audioSource.clip);
             xpBar.value = xp / xpToNextLevel;
             xpText.text = xp + " / " + xpToNextLevel + " XP";
+            levelText.text = "Level " + PlayerStats.instance.level;
         }
     }
 }
