@@ -6,13 +6,14 @@ public class SpawnManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject[] enemiesPrefabs;
-    [SerializeField] private int[] max;
+    [SerializeField] private int[] maxEnemyCounts;
     [SerializeField] private Transform enemyContainer;
     [SerializeField] private Transform weaponProjectileContainer;
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private int totalEnemyCount;
     
+    private float spawnCooldown = 3f;
     private float lastEnemySpawnTime;
-    private int totalEnemyCount;
     private int[] enemyCounts;
 
     public void Start()
@@ -22,7 +23,7 @@ public class SpawnManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (lastEnemySpawnTime > 3f)
+        if (lastEnemySpawnTime >= spawnCooldown)
         {
             SpawnEnemy();
             lastEnemySpawnTime = 0;
@@ -37,10 +38,13 @@ public class SpawnManager : MonoBehaviour
     {
         if (totalEnemyCount < 50) { 
             int ranIndex;
-            do
+            ranIndex = Random.Range(0, enemiesPrefabs.Length);
+
+            if (enemyCounts[ranIndex] >= maxEnemyCounts[ranIndex])
             {
-                ranIndex = Random.Range(0, enemiesPrefabs.Length);
-            } while (enemyCounts[ranIndex] >= max[ranIndex]);
+                lastEnemySpawnTime = spawnCooldown;
+                return;
+            }
 
             enemyCounts[ranIndex]++;
 

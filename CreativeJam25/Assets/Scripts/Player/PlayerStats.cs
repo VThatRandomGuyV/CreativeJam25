@@ -73,9 +73,6 @@ public class PlayerStats : MonoBehaviour
         {
             TakeDamage(10.0f);
         }
-
-        // check if player is flipped
-
     }
 
     void OnDrawGizmos()
