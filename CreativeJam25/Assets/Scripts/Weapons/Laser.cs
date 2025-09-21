@@ -60,7 +60,7 @@ public class LaserBeam : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponentInParent<Enemy>().TakeDamage(damagePerSecond * Time.deltaTime);
+            collision.GetComponentInParent<Enemy>().TakeDamageNoKnockback(damagePerSecond * Time.deltaTime);
         }
     }
 }

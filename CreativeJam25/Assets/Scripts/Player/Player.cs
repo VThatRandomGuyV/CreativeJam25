@@ -177,7 +177,7 @@ public class Player : MonoBehaviour
     {
         GameObject laserBeam = Instantiate(laserPrefab, transform.position, Quaternion.identity);
         laserBeam.GetComponent<LaserBeam>().Initialize(laserDamagePerSec);
-        float reTargetTime = 0.5f;
+        float reTargetTime = 0.25f;
 
         laserBeams.Add(laserBeam);
 
