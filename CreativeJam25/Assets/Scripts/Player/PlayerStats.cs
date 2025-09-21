@@ -67,12 +67,6 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         voidAura = Physics2D.CircleCast(transform.position, voidRadius, Vector2.zero, 0);
-
-        //When you press Spacebar take damage
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10.0f);
-        }
     }
 
     void OnDrawGizmos()
@@ -133,7 +127,12 @@ public class PlayerStats : MonoBehaviour
 
         if (level % 4 == 0)
         {
-            GetComponentInChildren<Animator>().SetInteger("level", level/4);
+            GetComponentInChildren<Animator>().SetInteger("level", level / 4);
+        }
+        if (level == 15)
+        {
+            //Activate ConsumeTheWorld Prompt
+            Debug.Log("Activate ConsumeTheWorld Prompt");
         }
     }
 
