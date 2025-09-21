@@ -81,6 +81,10 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if(PlayerState.instance.currentState == PlayerState.PlayerStates.Win)
+        {
+            return;
+        }
         if (damage < 0)
         {
             // Debug: Set enemy`s damage to negative to ignore damage

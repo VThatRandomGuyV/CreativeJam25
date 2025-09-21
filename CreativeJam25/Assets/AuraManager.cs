@@ -19,8 +19,8 @@ public class AuraManager : MonoBehaviour
         // Update the aura sprite size based on the player's void radius
         if (Level.Instance != null && Level.Instance.Player != null)
         {
-            float voidRadius = Level.Instance.Player.GetComponent<PlayerStats>().voidRadius + 1.0f; // Add some padding
-            auraSpriteRenderer.transform.localScale = new Vector3(voidRadius, voidRadius, voidRadius);
+            float voidRadius = Level.Instance.Player.GetComponent<PlayerStats>().voidRadius; // Add some padding
+            auraSpriteRenderer.transform.localScale = new Vector3(voidRadius*2, voidRadius * 2, voidRadius * 2);
 
             // Update particle system shape x position
             var shape = auraParticleSystem.shape;
