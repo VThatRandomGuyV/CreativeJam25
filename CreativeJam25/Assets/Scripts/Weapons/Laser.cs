@@ -29,7 +29,7 @@ public class LaserBeam : MonoBehaviour
         float distance = Vector3.Distance(originPosition, targetPosition);
         transform.SetPositionAndRotation(originPosition + direction * (distance / 2),
                                             Quaternion.LookRotation(Vector3.forward, direction));
-        transform.localScale = new Vector3(0.1f, distance, 1f); // Assuming the laser sprite is 1 unit tall
+        transform.localScale = new Vector3(1f, distance, 1f); // Assuming the laser sprite is 1 unit tall
 
         // Update collider and sprite renderer size
         if (laserCollider != null)
