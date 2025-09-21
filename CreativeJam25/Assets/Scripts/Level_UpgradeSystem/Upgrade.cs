@@ -9,5 +9,7 @@ public abstract class Upgrade : ScriptableObject
 
     public string Description { get { return description; } set { description = value; } }
 
+    
+
     public abstract void ApplyUpgrade(GameObject player);
 }

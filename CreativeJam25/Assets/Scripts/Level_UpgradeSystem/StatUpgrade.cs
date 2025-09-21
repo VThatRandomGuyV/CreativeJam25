@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StatUpgrade : Upgrade
 {
-    private enum StatUpgradeType
+    public enum StatUpgradeType
     {
         Health,
         Speed,
@@ -14,9 +14,14 @@ public class StatUpgrade : Upgrade
 
     [SerializeField] private float upgradeAmount = 0;
 
-    [SerializeField] private StatUpgradeType upgradeType;
+    [SerializeField] public StatUpgradeType upgradeType;
 
     public float UpgradeAmount { get { return upgradeAmount; } set { upgradeAmount = value; } }
+
+    public void Start()
+    {
+        upgradeName = upgradeType.ToString() + " Upgrade";
+    }
 
     public override void ApplyUpgrade(GameObject player)
     {

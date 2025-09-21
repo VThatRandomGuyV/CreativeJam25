@@ -55,7 +55,7 @@ public class UpgradeUI : MonoBehaviour
             if (randomUpgrade is StatUpgrade statUpgrade)
             {
                 statUpgrade.UpgradeAmount = Random.Range(1, 100); // Random amount between 5% and 20%
-                randomUpgrade.Description = "Increases " + statUpgrade.GetType().Name + " by " + statUpgrade.UpgradeAmount + "%";
+                randomUpgrade.Description = "Increases " + statUpgrade.upgradeType + " by " + statUpgrade.UpgradeAmount + "%";
             }
             upgradePanels[i].GetComponent<UpgradePanel>().SetUpgrade(randomUpgrade);
             unSelectedUpgrades.RemoveAt(upgradeIndex);
