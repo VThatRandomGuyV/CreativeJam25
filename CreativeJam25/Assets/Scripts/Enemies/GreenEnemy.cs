@@ -22,11 +22,10 @@ namespace Characters
 
         void OnTriggerEnter2D(Collider2D collision)
         {
-            // Debug.Log("Green Shield Target: " + collision.gameObject.tag);
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 collision.gameObject.GetComponentInParent<Enemy>().ShieldYourself(50f);
-            }   
+            }
         }
     }
 }

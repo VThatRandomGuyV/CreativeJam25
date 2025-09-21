@@ -13,24 +13,26 @@ namespace Characters
 
         [Header(nameof(Enemy))]
         [SerializeField] protected NavMeshAgent navMeshAgent;
-        [SerializeField] private LevelColor levelColor;
         [SerializeField] protected float attackRange;
         [SerializeField] protected float attackDamage;
         [SerializeField] protected float attackCooldown;
-        [Header("Knockback when hit should be small 0.5f - 1.5f")]
+
+        [Header("Knockback 0.25f - 2.0f")]
         [SerializeField] private float knockbackForce;
+
+
+        [Header("Shield")]
+        [SerializeField] protected float shieldHP;
+        [SerializeField] private bool buffed = false;
 
         protected EnemyState currentState;
         protected PlayerStats player;
-        [SerializeField] protected float shieldHP;
-        [SerializeField] private bool buffed = false;
         protected float lastAttackTime;
         protected Vector2 playerPosition;
         protected Vector2 normalizedTrajectoryToPlayer;
         protected float shieldDuration = 5f;
 
         public Collider2D EnemyCollider => characterCollider;
-        public LevelColor LevelColor => levelColor;
         public SpriteRenderer SpriteRenderer => GetComponentInChildren<SpriteRenderer>();
         public float AttackDamage => attackDamage;
 
