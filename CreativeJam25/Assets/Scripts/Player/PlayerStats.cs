@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
 
     public float maxHealth; //max health the plr can have
     public float speed; //how fast the plr moves. Feel free to turn it to a float if you want idc. Idk how fast or slow you want the guy to move
+    public int level = 1;
 
     public float voidRadius;
 
@@ -33,6 +34,8 @@ public class PlayerStats : MonoBehaviour
 
     UnityEvent OnDeath = new UnityEvent(); //event that triggers when the player dies
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+
     void Start()
     {
         health = maxHealth;
@@ -94,6 +97,16 @@ public class PlayerStats : MonoBehaviour
         maxHealth *= 1 + (amount / 100);
         health *= 1 + (amount / 100);
         OnHealthChanged.Invoke();
+    }
+
+    public void LevelUp()
+    {
+        level += 1;
+
+        if (level % 4 == 0)
+        {
+            GetComponent<Animator>().SetInteger("level", level/4);
+        }
     }
 
     public void IncreaseSpeed(float amount)

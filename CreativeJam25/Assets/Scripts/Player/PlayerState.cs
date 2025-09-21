@@ -30,6 +30,4 @@ public class PlayerState : MonoBehaviour
     void Start()
     {
     }
-
-
 }
