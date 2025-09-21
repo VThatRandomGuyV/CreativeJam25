@@ -20,7 +20,6 @@ public class HealthUI : MonoBehaviour
 
     public void UpdateHealthUI()
     {
-        Debug.Log("Health Changed");
         healthSlider.maxValue = (int)PlayerStats.instance.maxHealth;
         healthSlider.value = (int)PlayerStats.instance.Health;
         healthFractionText.text = (int)PlayerStats.instance.Health + " / " + (int)PlayerStats.instance.maxHealth;

@@ -36,15 +36,12 @@ public class StatUpgrade : Upgrade
         switch (upgradeType)
         {
             case StatUpgradeType.Health:
-                Debug.Log("Applying Health Upgrade by ");
                 stats.IncreaseMaxHealth(upgradeAmount);
                 break;
             case StatUpgradeType.Speed:
-                Debug.Log("Applying Speed Upgrade by ");
                 stats.IncreaseSpeed(upgradeAmount);
                 break;
             case StatUpgradeType.VoidAura:
-                Debug.Log("Applying Void Aura Upgrade by ");
                 stats.IncreaseVoidAura(upgradeAmount);
                 break;
             default:
