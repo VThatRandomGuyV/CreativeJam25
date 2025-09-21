@@ -41,6 +41,8 @@ public class PlayerStats : MonoBehaviour
 
     public UnityEvent OnDeath = new(); //event that triggers when the player dies
 
+    public UnityEvent ConsumeTheWorld = new(); //event that triggers when the player reaches level 15 and can consume the world
+
     private float blinkDuration; //how fast the plr blinks when invincible
 
     void Awake()
@@ -125,11 +127,18 @@ public class PlayerStats : MonoBehaviour
 
     public void LevelUp()
     {
+        if (level >= 16) return;
         level += 1;
 
         if (level % 4 == 0)
         {
-            GetComponentInChildren<Animator>().SetInteger("level", level/4);
+            GetComponentInChildren<Animator>().SetInteger("level", level / 4);
+        }
+        if (level == 16)
+        {
+            //Activate ConsumeTheWorld Prompt
+            ConsumeTheWorld.Invoke();
+            Debug.Log("Activate ConsumeTheWorld Prompt");
         }
     }
 

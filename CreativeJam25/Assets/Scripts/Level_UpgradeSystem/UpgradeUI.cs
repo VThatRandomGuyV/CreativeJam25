@@ -31,6 +31,7 @@ public class UpgradeUI : MonoBehaviour
 
     public void OpenUpgradeMenu()
     {
+        if(PlayerStats.instance.level >= 15) { return; } //No more upgrades after level 15
         gameObject.SetActive(true);
         //Reset the unSelected upgrades
         for (int i = 0; i < upgrades.Length; i++)

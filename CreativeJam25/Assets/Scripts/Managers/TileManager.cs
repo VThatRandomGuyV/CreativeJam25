@@ -46,7 +46,6 @@ public class TileManager : MonoBehaviour
 
         a[0] = plr.position;
         CalculateVoidAura(plr.position);
-
         if(isColoured(a[0])){}
         placeTiles(a, 0);
     }
