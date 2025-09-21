@@ -203,7 +203,7 @@ namespace Characters
         public void Death()
         {
             // Update enemy kill count logic
-            Level.Instance.UpdateEnemyKilledCount(Level.Instance.currentColor);
+            Level.Instance.UpdateEnemyKilledCount(entityColor);
 
             // Update enemy object
             characterRigidbody.freezeRotation = false;
