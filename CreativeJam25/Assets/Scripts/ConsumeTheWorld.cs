@@ -38,6 +38,7 @@ public class ConsumeTheWorld : MonoBehaviour
     {
         ConsumeTheWorldPrompt.gameObject.SetActive(false);
         inputAction.Disable();
+        PlayerState.instance.currentState = PlayerState.PlayerStates.Win;
         //Player and enemies are frozen as the screen fades to black
         //After the fade, it will show an edgy quote about starting with nothing but consuming everything.
         //Main Menu.
