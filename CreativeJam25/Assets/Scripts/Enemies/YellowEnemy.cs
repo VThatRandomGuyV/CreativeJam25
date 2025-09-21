@@ -1,9 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Threading;
-using Combat;
-using Levels;
 using UnityEngine;
-using Core;
 
 namespace Characters
 {
