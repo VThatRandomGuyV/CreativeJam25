@@ -23213,6 +23213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3877060882182588000, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
+      propertyPath: basePoisonDamage
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7277709363797054526, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9

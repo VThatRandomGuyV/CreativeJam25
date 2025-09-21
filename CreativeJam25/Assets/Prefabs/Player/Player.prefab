@@ -79,7 +79,7 @@ MonoBehaviour:
   laserPrefab: {fileID: 9208547040363949134, guid: e08bd5a0411830845b96ca495e084710, type: 3}
   laserDamagePerSec: 5
   laserRangeMod: 10
-  basePoisonDamage: 0.02
+  basePoisonDamage: 0.5
 --- !u!114 &9117774343697982545
 MonoBehaviour:
   m_ObjectHideFlags: 0
