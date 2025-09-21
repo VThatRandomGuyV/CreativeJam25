@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     [Header("Void Projectile Settings")]
     [SerializeField] private int voidProjectileCountBase = 1;
-    [SerializeField] private float voidProjectileSpeed = 5f;
+    [SerializeField] private float voidProjectileSpeed = 1000f;
     [SerializeField] private float voidProjectileDamage = 5f;
     [SerializeField] private float voidProjectilRangeMod = 1.5f;
     [SerializeField] private float VPACooldown = 1f; // Void Projectile Attack Cooldown

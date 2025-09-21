@@ -67,15 +67,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   voidProjectileCountBase: 2
-  voidProjectileSpeed: 5
+  voidProjectileSpeed: 1000
   voidProjectileDamage: 5
   voidProjectilRangeMod: 5
-  VPACooldown: 1
+  VPACooldown: 2
   voidProjectilePrefab: {fileID: 1192747416667966142, guid: ff45c701d3386584794dde714b1b6a5d, type: 3}
   orbitBallPrefab: {fileID: 1192747416667966142, guid: 112c4015e1d9a174bbce8b40b01ee2ff, type: 3}
   orbitBallSpeed: 5
   orbitBallDamage: 5
-  orbitBallRadius: 1.5
+  orbitBallRadiusBase: 1.5
   basePoisonDamage: 0.02
 --- !u!114 &9117774343697982545
 MonoBehaviour:

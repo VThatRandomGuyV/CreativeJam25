@@ -322,7 +322,7 @@ MonoBehaviour:
   health: 50
   moveSpeed: 2
   navMeshAgent: {fileID: 8137432422228675022}
-  attackRange: 10
+  attackRange: 4
   attackDamage: -1
   attackCooldown: 5
   entityColor: 4
