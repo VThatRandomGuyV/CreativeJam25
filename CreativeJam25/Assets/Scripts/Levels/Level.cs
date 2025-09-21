@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-using Characters;
 using Combat;
 using Levels;
 
@@ -14,7 +13,7 @@ public class Level : MonoBehaviour
         public LevelColor LevelColor;
         public Color HUDColor;
         public GameObject SpawnObject;
-        public AudioClip BackgroundMusic;
+        // public AudioClip BackgroundMusic;
         public float SpawnCooldown;
         public int MaxEnemies;
     }
@@ -40,11 +39,11 @@ public class Level : MonoBehaviour
     [SerializeField] private LevelColorManager _levelColorManager;
     [SerializeField] private SpawnManager spawnManager;
     [SerializeField] private List<LevelData> enemyData;
-    [SerializeField] private AudioSource audioSource;
+    // [SerializeField] private AudioSource audioSource;
     [SerializeField] private Transform playerSpawnPoint;
-    [SerializeField] private Player player;
+    [SerializeField] private PlayerStats player;
     [SerializeField] private LevelInfoSO levelInfo;
-    public Player Player => player;
+    public PlayerStats Player => player;
     public LevelColor currentColor;
 
     // Update the level's color based on the current level color
@@ -54,7 +53,7 @@ public class Level : MonoBehaviour
         currentColor = newColor;
         //spawnManager.SetLevelColor(newColor);
 
-        PlayAudio();
+        // PlayAudio();
     }
 
     private void OnDestroy()
@@ -74,20 +73,20 @@ public class Level : MonoBehaviour
         player.transform.position = spawnPoint.position;
     }
 
-    private void PlayAudio()
-    {
-        audioSource.clip = GetLevelData(currentColor).BackgroundMusic;
+    // private void PlayAudio()
+    // {
+    //     audioSource.clip = GetLevelData(currentColor).BackgroundMusic;
 
-        // Plays the AudioClip assigned to the AudioSource
-        if (audioSource.clip != null)
-        {
-            audioSource.Play();
-        }
-        else
-        {
-            Debug.LogWarning("No audio clip is assigned to the AudioSource!");
-        }
-    }
+    //     // Plays the AudioClip assigned to the AudioSource
+    //     if (audioSource.clip != null)
+    //     {
+    //         audioSource.Play();
+    //     }
+    //     else
+    //     {
+    //         Debug.LogWarning("No audio clip is assigned to the AudioSource!");
+    //     }
+    // }
 
     public int GetNumberOfEnemiesDefeated(LevelColor color)
     {

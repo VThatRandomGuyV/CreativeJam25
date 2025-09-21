@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using Levels;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using Combat;
 
 public class MapChanger : MonoBehaviour
 {

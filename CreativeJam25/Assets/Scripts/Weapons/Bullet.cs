@@ -89,8 +89,8 @@ public class Bullet : MonoBehaviour
         // Player damage
         if (collision.gameObject.CompareTag("Player") && !shotByPlayer)
         {
-            Player player = collision.gameObject.GetComponent<Player>();
-            if (player.CanBeDamaged()) 
+            PlayerStats player = collision.gameObject.GetComponent<PlayerStats>();
+            if (PlayerState.instance.currentState == PlayerState.PlayerStates.Normal) 
                 player.TakeDamage(damage);
             Destroy(gameObject);
         }

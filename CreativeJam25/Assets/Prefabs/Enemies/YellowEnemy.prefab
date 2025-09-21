@@ -213,7 +213,7 @@ MonoBehaviour:
   moveSpeed: 2
   navMeshAgent: {fileID: 8137432422228675022}
   levelColor: 0
-  attackRange: 8
+  attackRange: 0
   attackDamage: 10
   attackCooldown: 5
   knockbackForce: 1

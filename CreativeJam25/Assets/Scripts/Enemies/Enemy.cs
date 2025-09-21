@@ -21,7 +21,7 @@ namespace Characters
         [SerializeField] private float knockbackForce;
 
         protected EnemyState currentState;
-        protected Player player;
+        protected PlayerStats player;
         [SerializeField] protected float shieldHP;
         [SerializeField] private bool buffed = false;
         protected float lastAttackTime;
@@ -35,7 +35,7 @@ namespace Characters
         public SpriteRenderer SpriteRenderer => GetComponentInChildren<SpriteRenderer>();
         public float AttackDamage => attackDamage;
 
-        public virtual void Initialize(Player player)
+        public virtual void Initialize(PlayerStats player)
         {
             this.player = player;
 
