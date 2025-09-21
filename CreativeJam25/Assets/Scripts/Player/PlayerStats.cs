@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using System.Collections;
 
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Collider2D))]
 public class PlayerStats : MonoBehaviour
 {
     public float Health { get; private set; } //how much health the plr has. Feel free to turn it to a float if you want idc;
@@ -28,6 +29,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] AudioClip damageSound; //sound that plays when the plr takes damage
 
     [SerializeField] AudioClip deathSound; //sound that plays when the plr dies
+
+    public Collider2D PlayerCollider;
 
     RaycastHit2D voidAura;
     UnityEvent OnHealthChanged = new(); //event that triggers when health changes

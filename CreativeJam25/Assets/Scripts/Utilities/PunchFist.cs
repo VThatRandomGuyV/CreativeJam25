@@ -16,7 +16,7 @@ namespace Utility
         [SerializeField] private float duration;
         [SerializeField] private float distance;
         
-        private Player player;
+        private PlayerStats player;
         private Vector2 startPosition;
         private Vector2 endPosition;
         private float punchStartTime;
@@ -24,7 +24,7 @@ namespace Utility
         
         public bool IsPunching => isPunching;
 
-        public void Initialize(Player player, Vector2 normalizedTrajectoryToPlayer)
+        public void Initialize(PlayerStats player, Vector2 normalizedTrajectoryToPlayer)
         {
             this.player = player;
             isPunching = true;

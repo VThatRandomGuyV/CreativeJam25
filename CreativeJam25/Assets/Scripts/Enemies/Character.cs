@@ -9,6 +9,6 @@ namespace Characters
         [SerializeField] protected Rigidbody2D characterRigidbody;
         [SerializeField] protected SpriteRenderer characterSpriteRenderer;
         [SerializeField] internal float health;
-        [SerializeField] protected float moveSpeed;
+        [SerializeField] internal float moveSpeed;
     }
 }

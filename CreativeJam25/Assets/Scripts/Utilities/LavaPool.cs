@@ -50,7 +50,7 @@ namespace Utility
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                other.gameObject.GetComponent<Player>().TakeDamage(currentDamage);
+                other.gameObject.GetComponent<PlayerStats>().TakeDamage(currentDamage);
             }
         }
     }
