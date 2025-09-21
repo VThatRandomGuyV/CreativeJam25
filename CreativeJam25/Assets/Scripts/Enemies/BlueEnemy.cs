@@ -6,12 +6,12 @@ namespace Characters
     {
         [Header(nameof(BlueEnemy))]
         [SerializeField] private GameObject miniBluePrefab;
-        [SerializeField] private float miniBlueCooldown;
+        [SerializeField] private Transform minionsContainer;
+        [SerializeField] private float minionsCooldown = 15f;
+        [SerializeField] private int minionsMaxCount = 3;
         
         private float lastMiniBlueSpawnTime;
         private bool spawnToggle;
-
-        //private readonly List<BlueMini> minions = new();
 
         protected override void ToggleProjectiles(bool toggle)
         {
@@ -31,26 +31,40 @@ namespace Characters
         {
             base.MoveTowardsPlayer();
             
-            //SpawnLavaPool();
+            SpawnMinions();
         }
 
-        //private void SpawnLavaPool()
-        //{
-        //    if (!miniBluePrefab)
-        //    {
-        //        Debug.LogError("mini blue prefab not set.");
-        //        return;
-        //    }
+        private void SpawnMinions()
+        {
+           if (!miniBluePrefab)
+           {
+               Debug.LogError("mini blue prefab not set.");
+               return;
+           }
 
-        //    if (!(Time.time - lastMiniBlueSpawnTime > miniBlueCooldown))
-        //    {
-        //        return;
-        //    }
+           if (!(Time.time - lastMiniBlueSpawnTime > minionsCooldown))
+           {
+               return;
+           }
 
-        //    lastMiniBlueSpawnTime = Time.time;
-        //    var minion = Instantiate(miniBluePrefab, transform.position, transform.rotation);
-        //    minion.transform.SetParent(weaponProjectileContainer);
-        //    minions.Add(lavaPool.GetComponent<LavaPool>());
-        //}
+           lastMiniBlueSpawnTime = Time.time;
+
+            // Spawn mini blueys around the blue enemy in a triangle pattern. If the position is occupied, spawn on top of the blue enemy.
+            for (int i = 0; i < minionsMaxCount; i++)
+            {
+                float angle = i * 120f;
+                Vector2 spawnPosition = (Vector2)transform.position + (Vector2)(Quaternion.Euler(0, 0, angle) * Vector2.up * 0.5f);
+
+                if (!Physics2D.OverlapCircle(spawnPosition, 0.1f))
+                {
+                    var bluey = Instantiate(miniBluePrefab, spawnPosition, transform.rotation);
+                    bluey.transform.SetParent(minionsContainer);
+                    return;
+                }
+            }
+
+            var minion = Instantiate(miniBluePrefab, transform.position, transform.rotation);
+            minion.transform.SetParent(minionsContainer);
+        }
     }
 }

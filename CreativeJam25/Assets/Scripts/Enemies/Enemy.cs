@@ -28,7 +28,6 @@ namespace Characters
         protected Vector2 playerPosition;
         protected Vector2 normalizedTrajectoryToPlayer;
         protected float shieldDuration = 5f;
-        //protected Transform weaponProjectileContainer;
 
         public Collider2D EnemyCollider => characterCollider;
         public LevelColor LevelColor => levelColor;

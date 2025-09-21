@@ -11,17 +11,16 @@ namespace Characters
         [SerializeField] private float projectileDamage = 10f;
         [SerializeField] private float projectileSpeed = 800f;
         [SerializeField] private Transform shootingPoint;
-        [SerializeField] private Transform weaponProjectilContainer;
+        [SerializeField] private Transform weaponProjectileContainer;
 
         private Core.Timer timer;
         private bool projectileToggle;
-        private Transform weaponProjectileContainer;
 
         private readonly List<Bullet> lazers = new();
 
         public void Start()
         {
-            if (!weaponProjectilContainer)
+            if (!weaponProjectileContainer)
             {
                 Debug.Log("weapon container is null");
             }
