@@ -8,6 +8,8 @@ public class TileManager : MonoBehaviour
     [SerializeField] private Transform plr;
     [SerializeField] private UpgradeManager uManager;
 
+    [SerializeField] private int xpOnConsume = 1;
+
     public static TileManager Instance { get; private set; }
     private void Awake()
     {
@@ -95,7 +97,7 @@ public class TileManager : MonoBehaviour
         {
             return false;
         }
-        uManager.AddXP(1.0f);
+        uManager.AddXP(xpOnConsume);
         return true;
     }
 
