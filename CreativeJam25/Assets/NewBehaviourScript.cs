@@ -21,7 +21,7 @@ public class NewBehaviourScript : MonoBehaviour
         a[0] = plr.position;
         CalculateVoidAura(plr.position);
 
-        print(isColoured(a[0]));
+        if(isColoured(a[0])){}
         placeTiles(a, 0);
     }
 

@@ -4,7 +4,7 @@ using Characters;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float damage;
+    public float damage;
     [SerializeField] private float speed;
     [SerializeField] private int maxRicochet;
 

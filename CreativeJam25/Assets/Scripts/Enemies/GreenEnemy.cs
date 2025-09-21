@@ -16,8 +16,6 @@ namespace Characters
         {
             player = Level.Instance.Player;
             buffTriggerCollider = GetComponent<Collider2D>();
-            Physics2D.IgnoreCollision(punchFistCollider, buffTriggerCollider);
-            Physics2D.IgnoreCollision(punchFistColliderTrigger, buffTriggerCollider);
         }
 
         void OnTriggerEnter2D(Collider2D collision)

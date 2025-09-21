@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour
     public float speed; //how fast the plr moves. Feel free to turn it to a float if you want idc. Idk how fast or slow you want the guy to move
     public int level = 1;
     public int OrbitBallLevel = 0;
-    public int AutoCannonLevel = 0;
+    public int voidProjectileLevel = 0;
     public int LazerLevel = 0;
     public int SlowAuraLevel = 0;
     public int PoisonAuraLevel = 0;
@@ -68,11 +68,7 @@ public class PlayerStats : MonoBehaviour
     {
         voidAura = Physics2D.CircleCast(transform.position, voidRadius, Vector2.zero, 0);
 
-        //When you press Spacebar take damage
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10.0f);
-        }
+
     }
 
     void OnDrawGizmos()
