@@ -163,8 +163,7 @@ public class Player : MonoBehaviour
             else
             {
                 // No enemies in range, point laser straight ahead
-                Vector3 forwardPosition = transform.position + transform.right * (playerStats.voidRadius * laserRangeMod);
-                laserBeamComponent.UpdateTargetPosition(forwardPosition, transform.position);
+                targetPosition = transform.position + transform.right * (playerStats.voidRadius * laserRangeMod);
             }
 
             // Update laser target position
