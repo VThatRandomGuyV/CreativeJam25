@@ -105,7 +105,7 @@ public class Level : MonoBehaviour
         SpawnManager.Instance.totalEnemyCount -= 1;
         
         UpgradeManager.Instance.enemiesKilled += 1;
-        UpgradeManager.Instance.enemiesKilledText.text = UpgradeManager.Instance.enemiesKilled.ToString();
+        //UpgradeManager.Instance.enemiesKilledText.text = UpgradeManager.Instance.enemiesKilled.ToString();
     }
 
     // Start
