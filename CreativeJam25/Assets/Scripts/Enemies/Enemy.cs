@@ -73,11 +73,6 @@ namespace Characters
                 Destroy(this);
             }
 
-            if (health <= 0)
-            {
-                Death();
-            }
-
             if (currentState is EnemyState.Dead)
             {
                 characterRigidbody.linearVelocity = Vector2.zero;
@@ -163,13 +158,13 @@ namespace Characters
             {
                 shieldSpriteRenderer.enabled = false;
                 health -= damageTaken;
-            }
 
-            // Death
-            if (health <= 0)
-            {
-                Death();
-                return;
+                // Death check
+                if (health <= 0)
+                {
+                    Death();
+                    return;
+                }
             }
 
             // Knockback effect

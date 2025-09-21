@@ -36,9 +36,11 @@ public class Bullet : MonoBehaviour
             shotByPlayer = false;
             bulletCollider.excludeLayers = LayerMask.GetMask("Enemy");
         }
-        
+
         // Set the trajectory of the bullet
         this.trajectory = trajectory.normalized;
+        this.speed = speed;
+        this.damage = damage;
     }
     void Start()
     {
