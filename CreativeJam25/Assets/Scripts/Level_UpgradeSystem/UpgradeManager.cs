@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class UpgradeManager : MonoBehaviour
 {
     public static UpgradeManager Instance;
+
+    [Header("XP System")]
     [SerializeField] private float xp = 0.0f;
 
     private float xpToNextLevel = 100.0f;
@@ -17,7 +19,11 @@ public class UpgradeManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI levelText;
 
-    AudioSource audioSource; //reference to the audio source component
+    [Header("Enemy Kills")]
+    public int enemiesKilled = 0;
+    public TextMeshProUGUI enemiesKilledText;
+
+    private AudioSource audioSource; //reference to the audio source component
     public UnityEvent OnLevelUp;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
