@@ -68,7 +68,7 @@ MonoBehaviour:
   voidProjectileCountBase: 2
   voidProjectileSpeed: 5
   voidProjectileDamage: 5
-  voidProjectilRangeMod: 1.5
+  voidProjectilRangeMod: 5
   VPACooldown: 3
   voidProjectilePrefab: {fileID: 1192747416667966142, guid: ff45c701d3386584794dde714b1b6a5d, type: 3}
   basePoisonDamage: 0.02
