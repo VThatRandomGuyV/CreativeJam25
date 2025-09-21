@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-using Levels;
 using System.Collections;
 
 namespace Characters
@@ -16,21 +15,25 @@ namespace Characters
         [SerializeField] protected float attackRange;
         [SerializeField] protected float attackDamage;
         [SerializeField] protected float attackCooldown;
+        [SerializeField] protected EnemyColor entityColor;
 
         [Header("Knockback 0.25f - 2.0f")]
         [SerializeField] private float knockbackForce;
 
-
         [Header("Shield")]
         [SerializeField] protected float shieldHP;
         [SerializeField] private bool buffed = false;
+        [SerializeField] protected SpriteRenderer shieldSpriteRenderer;
+
+        [Header("Item Drop")]
+        [SerializeField] private GameObject itemDropPrefab;
 
         protected EnemyState currentState;
         protected PlayerStats player;
         protected float lastAttackTime;
         protected Vector2 playerPosition;
         protected Vector2 normalizedTrajectoryToPlayer;
-        protected float shieldDuration = 5f;
+        protected float shieldDuration = 10f;
 
         public Collider2D EnemyCollider => characterCollider;
         public SpriteRenderer SpriteRenderer => GetComponentInChildren<SpriteRenderer>();
@@ -54,17 +57,16 @@ namespace Characters
             navMeshAgent.speed = moveSpeed;
             navMeshAgent.updateRotation = false;
             navMeshAgent.updateUpAxis = false;
-        }
 
-        private void Start()
-        {
-
+            // Shield settings
+            shieldSpriteRenderer.enabled = false;
         }
 
         private void FixedUpdate()
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
+            // Check player is assigned, enemy health is above 0, and not dead
             if (!player)
             {
                 Debug.LogError("Player is not active.");
@@ -83,9 +85,12 @@ namespace Characters
                 return;
             }
 
+            // Enemy behavior
             gameObject.SetActive(true);
             ToggleProjectiles(true);
             playerPosition = player.transform.position;
+
+            PlaceTilesOnTileset(new Vector3[] { transform.position }, TileManager.Instance.tileset, (int)entityColor);
 
             if (!IsNearPlayer())
             {
@@ -107,6 +112,7 @@ namespace Characters
             yield return new WaitForSeconds(shieldDuration);
             buffed = false;
             shieldHP = 0f;
+            shieldSpriteRenderer.enabled = false;
         }
 
         internal void ShieldYourself(float shieldAmount)
@@ -118,6 +124,7 @@ namespace Characters
 
             buffed = true;
             shieldHP = shieldAmount;
+            shieldSpriteRenderer.enabled = true;
             StartCoroutine(ShieldDurationCoroutine());
         }
 
@@ -148,15 +155,22 @@ namespace Characters
 
         public void TakeDamage(float damageTaken)
         {
-            if(shieldHP > 0)
+            if (shieldHP > 0)
             {
                 shieldHP -= damageTaken;
             }
             else
             {
+                shieldSpriteRenderer.enabled = false;
                 health -= damageTaken;
             }
 
+            // Death
+            if (health <= 0)
+            {
+                Death();
+                return;
+            }
 
             // Knockback effect
             var knockbackDirection = (Vector2)transform.position - playerPosition;
@@ -180,10 +194,44 @@ namespace Characters
             characterRigidbody.freezeRotation = false;
             characterCollider.enabled = false;
             currentState = EnemyState.Dead;
-            
+
+            // Instantiate item drop
+            if (itemDropPrefab)
+            {
+                Instantiate(itemDropPrefab, transform.position, Quaternion.identity);
+            }
+
             // Destroy the enemy object after a delay
             Destroy(gameObject, 2f);
             OnDeath?.Invoke(this);
+        }
+        
+        void PlaceTilesOnTileset(Vector3[] positions, UnityEngine.Tilemaps.Tilemap tileset, int color)
+        {
+
+            for (int i = 0; i < positions.Length; i++)
+            {
+                tileset.SetTileFlags(tileset.WorldToCell(positions[i]), UnityEngine.Tilemaps.TileFlags.None);
+                switch (color)
+                {
+                    case 0:
+                        tileset.SetColor(tileset.WorldToCell(positions[i]), Color.gray);
+                        
+                        break;
+                    case 1:
+                        tileset.SetColor(tileset.WorldToCell(positions[i]), Color.red);
+                        break;
+                    case 2:
+                        tileset.SetColor(tileset.WorldToCell(positions[i]), Color.blue);
+                        break;
+                    case 3:
+                        tileset.SetColor(tileset.WorldToCell(positions[i]), Color.green);
+                        break;
+                    case 4:
+                        tileset.SetColor(tileset.WorldToCell(positions[i]), Color.yellow);
+                        break;
+                }
+            }
         }
     }
 }

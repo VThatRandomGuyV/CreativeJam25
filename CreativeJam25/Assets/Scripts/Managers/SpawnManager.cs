@@ -10,9 +10,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Transform enemyContainer;
     [SerializeField] private Transform weaponProjectileContainer;
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private float spawnCooldown = 3f;
     [SerializeField] private int totalEnemyCount;
-    
-    private float spawnCooldown = 3f;
     private float lastEnemySpawnTime;
     private int[] enemyCounts;
 

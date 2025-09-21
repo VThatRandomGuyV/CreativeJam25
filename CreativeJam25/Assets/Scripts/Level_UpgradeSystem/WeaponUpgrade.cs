@@ -7,7 +7,7 @@ public class WeaponUpgrade : Upgrade
     private enum WeaponsUpgradeType
     {
         OrbitBall,
-        AutoCannon,
+        voidProjectile,
         Lazer,
         SlowAura,
         PoisonAura
@@ -30,9 +30,13 @@ public class WeaponUpgrade : Upgrade
                 Debug.Log("Increasing OrbitBall Weapon by one level");
                 stats.OrbitBallLevel++;
                 break;
-            case WeaponsUpgradeType.AutoCannon:
+            case WeaponsUpgradeType.voidProjectile:
                 Debug.Log("Increasing AutoCannon Weapon by one level");
-                stats.AutoCannonLevel++;
+                stats.voidProjectileLevel++;
+                if( stats.voidProjectileLevel == 1)
+                {
+                    player.GetComponent<Player>().StartCoroutine(player.GetComponent<Player>().VoidProjectileAttackCoroutine());
+                }
                 break;
             case WeaponsUpgradeType.Lazer:
                 Debug.Log("Increasing Lazer Weapon by one level");

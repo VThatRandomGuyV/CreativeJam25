@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  speed: 500
+  speed: 300
   maxRicochet: 0
   shotByPlayer: 0
 --- !u!95 &-4995378869169040661

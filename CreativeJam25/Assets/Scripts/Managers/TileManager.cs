@@ -1,15 +1,41 @@
-using NUnit.Framework.Constraints;
 using System;
-using System.Linq;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class NewBehaviourScript : MonoBehaviour
+public class TileManager : MonoBehaviour
 {
-    [SerializeField] private Tilemap tileset;
-    [SerializeField] private Rigidbody2D plr;
+    public Tilemap tileset;
+    [SerializeField] private Transform plr;
     [SerializeField] private UpgradeManager uManager;
+
+    public static TileManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    private void Start()
+    {
+        if (tileset == null)
+        {
+            tileset = GameObject.Find("Tileset").GetComponent<Tilemap>();
+        }
+        if (plr == null)
+        {
+            plr = Level.Instance.Player.transform;
+        }
+        if (uManager == null)
+        {
+            uManager = UpgradeManager.Instance;
+        }
+    }
 
     void Update()
     {
