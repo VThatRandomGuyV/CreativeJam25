@@ -277,6 +277,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
+      propertyPath: maxEnemyCounts.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1745207134}
@@ -292,6 +296,22 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[3]'
       value: 
       objectReference: {fileID: 1080370205}
+    - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
+      propertyPath: 'maxEnemyCounts.Array.data[0]'
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
+      propertyPath: 'maxEnemyCounts.Array.data[1]'
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
+      propertyPath: 'maxEnemyCounts.Array.data[2]'
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
+      propertyPath: 'maxEnemyCounts.Array.data[3]'
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8797374371094408825, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.9
