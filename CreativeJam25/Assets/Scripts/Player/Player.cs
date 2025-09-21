@@ -2,6 +2,8 @@ using Characters;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using System.Runtime.CompilerServices;
 
 [RequireComponent(typeof(PlayerStats))]
 [RequireComponent(typeof(PlayerState))]
@@ -15,6 +17,8 @@ public class Player : MonoBehaviour
     private Collider2D[] enemiesInAura;
 
     private Collider2D[] enemiesInRange;
+
+    private Collider2D[] enemiesInLaserRange;
 
     private float poisonAuraTimer = 0f;
     private float slowAuraTimer = 0f;
@@ -33,6 +37,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float orbitBallDamage = 5f;
     [SerializeField] private float orbitBallRadiusBase = 1.5f;
     private List<GameObject> orbitBalls = new();
+
+    [Header("Laser Settings")]
+    [SerializeField] private GameObject laserPrefab;
+    [SerializeField] private float laserDamagePerSec = 5f;
+    [SerializeField] private float laserRangeMod = 10f;
+    private List<GameObject> laserBeams = new();
 
     [SerializeField] private float basePoisonDamage = 0.02f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -124,8 +134,55 @@ public class Player : MonoBehaviour
         GameObject orbitBall = Instantiate(orbitBallPrefab, transform.position, Quaternion.identity);
         float orbitBallRadius = PlayerStats.instance.voidRadius + orbitBallRadiusBase;
         orbitBall.GetComponent<OrbitBall>().Initialize(transform.position, orbitBallSpeed, orbitBallDamage, orbitBallRadius);
-        
+
         orbitBalls.Add(orbitBall);
+    }
+
+    private IEnumerator MaintainLaser(GameObject laserBeam, float reTargetTime)
+    {
+        LaserBeam laserBeamComponent = laserBeam.GetComponent<LaserBeam>();
+        Vector3 targetPosition = transform.position + transform.right * (playerStats.voidRadius * laserRangeMod);
+
+        while (true)
+        {
+            // Find furthest enemy in range
+            enemiesInLaserRange = Physics2D.OverlapCircleAll(transform.position, playerStats.voidRadius * laserRangeMod, LayerMask.GetMask("Enemy"));
+            if (enemiesInLaserRange.Length > 0)
+            {
+                float maxDistance = 0f;
+                foreach (Collider2D enemy in enemiesInLaserRange)
+                {
+                    float distance = Vector3.Distance(transform.position, enemy.transform.position);
+                    if (distance > maxDistance)
+                    {
+                        maxDistance = distance;
+                        targetPosition = enemy.transform.position;
+                    }
+                }
+            }
+            else
+            {
+                // No enemies in range, point laser straight ahead
+                Vector3 forwardPosition = transform.position + transform.right * (playerStats.voidRadius * laserRangeMod);
+                laserBeamComponent.UpdateTargetPosition(forwardPosition, transform.position);
+            }
+
+            // Update laser target position
+            laserBeamComponent.UpdateTargetPosition(targetPosition, transform.position);
+
+            yield return new WaitForSeconds(reTargetTime);
+        }
+    }
+
+    public void LaserBeamAttack()
+    {
+        GameObject laserBeam = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+        laserBeam.GetComponent<LaserBeam>().Initialize(laserDamagePerSec);
+        float reTargetTime = 0.5f;
+
+        laserBeams.Add(laserBeam);
+
+        StartCoroutine(MaintainLaser(laserBeam, reTargetTime));
     }
 
 }

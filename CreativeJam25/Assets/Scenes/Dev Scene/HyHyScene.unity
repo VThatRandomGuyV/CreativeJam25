@@ -262,6 +262,10 @@ PrefabInstance:
       propertyPath: 'maxEnemyCounts.Array.data[2]'
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8385452045143052797, guid: 3dfdef20a62dd25469c71edcfa607372, type: 3}
+      propertyPath: 'maxEnemyCounts.Array.data[3]'
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -609,12 +613,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5667816569692100863, guid: cc7b28acdfac809b29cb03e2723c8bfa, type: 3}
       propertyPath: upgrades.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5667816569692100863, guid: cc7b28acdfac809b29cb03e2723c8bfa, type: 3}
       propertyPath: 'upgrades.Array.data[6]'
       value: 
       objectReference: {fileID: 11400000, guid: 3eecd554cb6842842bd761bf810abf1a, type: 2}
+    - target: {fileID: 5667816569692100863, guid: cc7b28acdfac809b29cb03e2723c8bfa, type: 3}
+      propertyPath: 'upgrades.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: dac40387587f1264a8324602d8b5d12b, type: 2}
     - target: {fileID: 5931156199645385169, guid: cc7b28acdfac809b29cb03e2723c8bfa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -24024,10 +24032,6 @@ PrefabInstance:
     - target: {fileID: 909555274014226511, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3877060882182588000, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
-      propertyPath: VPACooldown
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7277709363797054526, guid: c6be6aa83e2306e41b8d77ef62cccc28, type: 3}
       propertyPath: m_LocalPosition.x

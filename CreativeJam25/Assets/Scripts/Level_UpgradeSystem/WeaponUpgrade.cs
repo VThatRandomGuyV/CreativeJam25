@@ -29,7 +29,7 @@ public class WeaponUpgrade : Upgrade
             case WeaponsUpgradeType.OrbitBall:
                 Debug.Log("Increasing OrbitBall Weapon by one level");
                 stats.OrbitBallLevel++;
-                if( stats.OrbitBallLevel >= 1)
+                if (stats.OrbitBallLevel >= 1)
                 {
                     player.GetComponent<Player>().OrbitBallAttack();
                 }
@@ -37,7 +37,7 @@ public class WeaponUpgrade : Upgrade
             case WeaponsUpgradeType.VoidProjectile:
                 Debug.Log("Increasing AutoCannon Weapon by one level");
                 stats.voidProjectileLevel++;
-                if( stats.voidProjectileLevel == 1)
+                if (stats.voidProjectileLevel == 1)
                 {
                     player.GetComponent<Player>().StartCoroutine(player.GetComponent<Player>().VoidProjectileAttackCoroutine());
                 }
@@ -45,6 +45,10 @@ public class WeaponUpgrade : Upgrade
             case WeaponsUpgradeType.Lazer:
                 Debug.Log("Increasing Lazer Weapon by one level");
                 stats.LazerLevel++;
+                if (stats.LazerLevel >= 1)
+                {
+                    player.GetComponent<Player>().LaserBeamAttack();
+                }
                 break;
             case WeaponsUpgradeType.SlowAura:
                 Debug.Log("Increasing SlowAura Aura Weapon by one level");
