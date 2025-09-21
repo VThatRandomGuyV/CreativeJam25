@@ -496,7 +496,7 @@ MonoBehaviour:
   - {fileID: 2800850533861119925, guid: e13e217569d3c054a8a5ff56ad8668df, type: 3}
   - {fileID: 2800850533861119925, guid: 14c5776e8e73d9c46b41060e8a2bd3fe, type: 3}
   - {fileID: 2800850533861119925, guid: 6a855adb6acf5b740b1bb74818aa5798, type: 3}
-  maxEnemyCounts: 000000000a0000000000000000000000
+  maxEnemyCounts: 05000000020000000200000003000000
   enemyContainer: {fileID: 8384871696266773269}
   weaponProjectileContainer: {fileID: 8987198475629143422}
   spawnPoints:
@@ -504,6 +504,7 @@ MonoBehaviour:
   - {fileID: 777114933319057694}
   - {fileID: 1766944076716561311}
   - {fileID: 6987909735647227968}
+  spawnCooldown: 3
   totalEnemyCount: 0
 --- !u!1 &8334532078398158585
 GameObject:

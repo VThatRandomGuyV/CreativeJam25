@@ -336,7 +336,7 @@ MonoBehaviour:
   projectileDamage: 10
   projectileSpeed: 800
   shootingPoint: {fileID: 6994205687750488708}
-  weaponProjectileContainer: {fileID: 0}
+  weaponProjectileContainer: {fileID: 8007813544011423822}
 --- !u!50 &1181669545835133422
 Rigidbody2D:
   serializedVersion: 5

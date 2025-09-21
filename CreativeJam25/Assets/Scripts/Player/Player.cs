@@ -1,6 +1,7 @@
 using Characters;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(PlayerStats))]
 [RequireComponent(typeof(PlayerState))]
@@ -18,17 +19,20 @@ public class Player : MonoBehaviour
     private float poisonAuraTimer = 0f;
     private float slowAuraTimer = 0f;
 
+    [Header("Void Projectile Settings")]
     [SerializeField] private int voidProjectileCountBase = 1;
-
     [SerializeField] private float voidProjectileSpeed = 5f;
-
     [SerializeField] private float voidProjectileDamage = 5f;
-
     [SerializeField] private float voidProjectilRangeMod = 1.5f;
-
     [SerializeField] private float VPACooldown = 1f; // Void Projectile Attack Cooldown
-
     [SerializeField] private GameObject voidProjectilePrefab;
+
+    [Header("Orbit ball Settings")]
+    [SerializeField] private GameObject orbitBallPrefab;
+    [SerializeField] private float orbitBallSpeed = 5f;
+    [SerializeField] private float orbitBallDamage = 5f;
+    [SerializeField] private float orbitBallRadiusBase = 1.5f;
+    private List<GameObject> orbitBalls = new();
 
     [SerializeField] private float basePoisonDamage = 0.02f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -89,11 +93,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void voidProjectileAttack()
+    private void VoidProjectileAttack()
     {
         // Shoot void projectiles at random enemies in the aura
         enemiesInRange = Physics2D.OverlapCircleAll(transform.position, playerStats.voidRadius * voidProjectilRangeMod, LayerMask.GetMask("Enemy"));
-        if(enemiesInRange.Length <= 0) return;
+        if (enemiesInRange.Length <= 0) return;
         int voidProjectileCount = voidProjectileCountBase + playerStats.voidProjectileLevel;
         for (int i = 0; i < voidProjectileCount; i++)
         {
@@ -105,13 +109,23 @@ public class Player : MonoBehaviour
             projectile.GetComponent<Bullet>().Initialize(direction, "Player", voidProjectileSpeed, voidProjectileDamage);
         }
     }
-    
+
     public IEnumerator VoidProjectileAttackCoroutine()
     {
         while (true)
         {
-            voidProjectileAttack();
+            VoidProjectileAttack();
             yield return new WaitForSeconds(VPACooldown); // Attack every second
         }
     }
+
+    public void OrbitBallAttack()
+    {
+        GameObject orbitBall = Instantiate(orbitBallPrefab, transform.position, Quaternion.identity);
+        float orbitBallRadius = PlayerStats.instance.voidRadius + orbitBallRadiusBase;
+        orbitBall.GetComponent<OrbitBall>().Initialize(transform.position, orbitBallSpeed, orbitBallDamage, orbitBallRadius);
+        
+        orbitBalls.Add(orbitBall);
+    }
+
 }

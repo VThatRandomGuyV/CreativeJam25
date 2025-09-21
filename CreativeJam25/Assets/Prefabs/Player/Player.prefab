@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1090852487401005904}
   - component: {fileID: 6046926744965346060}
   - component: {fileID: 5198339385514953073}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -70,8 +70,12 @@ MonoBehaviour:
   voidProjectileSpeed: 5
   voidProjectileDamage: 5
   voidProjectilRangeMod: 5
-  VPACooldown: 3
+  VPACooldown: 1
   voidProjectilePrefab: {fileID: 1192747416667966142, guid: ff45c701d3386584794dde714b1b6a5d, type: 3}
+  orbitBallPrefab: {fileID: 1192747416667966142, guid: 112c4015e1d9a174bbce8b40b01ee2ff, type: 3}
+  orbitBallSpeed: 5
+  orbitBallDamage: 5
+  orbitBallRadius: 1.5
   basePoisonDamage: 0.02
 --- !u!114 &9117774343697982545
 MonoBehaviour:
@@ -337,7 +341,7 @@ GameObject:
   - component: {fileID: 7894472832680753255}
   - component: {fileID: 1255798220715151535}
   - component: {fileID: 7438826115632069871}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
