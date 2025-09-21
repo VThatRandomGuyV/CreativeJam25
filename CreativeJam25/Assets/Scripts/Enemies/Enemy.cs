@@ -230,23 +230,22 @@ namespace Characters
                 switch (color)
                 {
                     case 0:
-                        tileset.SetColor(tileset.WorldToCell(positions[i]), Color.gray);
-                        
-                        break;
-                    case 1:
                         tileset.SetColor(tileset.WorldToCell(positions[i]), Color.red);
                         break;
-                    case 2:
+                    case 1:
                         tileset.SetColor(tileset.WorldToCell(positions[i]), Color.blue);
                         break;
-                    case 3:
+                    case 2:
                         tileset.SetColor(tileset.WorldToCell(positions[i]), Color.green);
                         break;
-                    case 4:
+                    case 3:
                         tileset.SetColor(tileset.WorldToCell(positions[i]), Color.yellow);
+                        break;
+                    default:
+                        tileset.SetColor(tileset.WorldToCell(positions[i]), Color.black);
                         break;
                 }
             }
-        }
+        }   
     }
-}
+ }

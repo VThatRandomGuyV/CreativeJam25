@@ -17,6 +17,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private int blueRate = 10;
     [SerializeField] private int greenRate = 15;
     [SerializeField] private int orangeRate = 15;
+    [SerializeField] private int maxEnemy = 200;
 
     public int totalEnemyCount;
     private float lastEnemySpawnTime;
@@ -55,7 +56,7 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        if (totalEnemyCount < 200) { 
+        if (totalEnemyCount < maxEnemy) { 
             int prefabIndex = 0;
             int weightedEnemyRNG;
             weightedEnemyRNG = Random.Range(1, 101);
