@@ -58,6 +58,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (totalEnemyCount < maxEnemy) { 
             int prefabIndex = 0;
+            int spawnPointsIndex = Random.Range(0, spawnPoints.Length);
             int weightedEnemyRNG;
             weightedEnemyRNG = Random.Range(1, 101);
             if(weightedEnemyRNG < redRate)
@@ -84,7 +85,7 @@ public class SpawnManager : MonoBehaviour
 
             enemyCounts[prefabIndex]++;
 
-            var enemy = Instantiate(enemiesPrefabs[prefabIndex], spawnPoints[prefabIndex].position, Quaternion.identity, enemyContainer);
+            var enemy = Instantiate(enemiesPrefabs[prefabIndex], spawnPoints[spawnPointsIndex].position, Quaternion.identity, enemyContainer);
             enemy.GetComponent<Enemy>().Initialize(Level.Instance.Player);
 
             totalEnemyCount++;
