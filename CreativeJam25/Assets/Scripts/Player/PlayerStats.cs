@@ -10,7 +10,11 @@ public class PlayerStats : MonoBehaviour
     public float maxHealth; //max health the plr can have
     public float speed; //how fast the plr moves. Feel free to turn it to a float if you want idc. Idk how fast or slow you want the guy to move
     public int level = 1;
-
+    public int OrbitBallLevel = 0;
+    public int AutoCannonLevel = 0;
+    public int LazerLevel = 0;
+    public int SlowAuraLevel = 0;
+    public int PoisonAuraLevel = 0;
     public float voidRadius;
 
     SpriteRenderer spriteRenderer; //reference to the sprite renderer component
