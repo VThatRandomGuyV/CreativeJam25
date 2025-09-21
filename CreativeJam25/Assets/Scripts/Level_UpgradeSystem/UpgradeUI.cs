@@ -78,6 +78,7 @@ public class UpgradeUI : MonoBehaviour
     {
         audioSource.PlayOneShot(audioSource.clip = buttonSound);
         yield return new WaitForSecondsRealtime(0.37f);
+        PlayerState.instance.currentState = PlayerState.PlayerStates.Normal; //reset state to normal on closing menu
         gameObject.SetActive(false);
         Time.timeScale = 1f; // Resume the game
         //Change gamestate back to Level

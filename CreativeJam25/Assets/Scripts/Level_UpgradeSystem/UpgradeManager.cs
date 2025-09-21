@@ -56,6 +56,7 @@ public class UpgradeManager : MonoBehaviour
             xp = xp - xpToNextLevel;
             //Make the next level require more xp based on an exponential scale
             xpToNextLevel *= 1.5f;
+            PlayerState.instance.currentState = PlayerState.PlayerStates.InMenu; //reset state to normal on level up
             OnLevelUp.Invoke();
             audioSource.PlayOneShot(audioSource.clip);
             xpBar.value = xp / xpToNextLevel;

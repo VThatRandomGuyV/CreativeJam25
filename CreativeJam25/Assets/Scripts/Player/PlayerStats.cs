@@ -34,7 +34,7 @@ public class PlayerStats : MonoBehaviour
 
     public Collider2D PlayerCollider;
 
-    RaycastHit2D voidAura;
+    public RaycastHit2D voidAura;
     public UnityEvent OnHealthChanged = new(); //event that triggers when health changes
 
     public UnityEvent OnTakeDamage = new(); //event that triggers when the player takes damage
@@ -93,7 +93,7 @@ public class PlayerStats : MonoBehaviour
         }
 
         if (PlayerState.instance.currentState == PlayerState.PlayerStates.Dead ||
-        PlayerState.instance.currentState == PlayerState.PlayerStates.Damaged)
+        PlayerState.instance.currentState == PlayerState.PlayerStates.Damaged || PlayerState.instance.currentState == PlayerState.PlayerStates.InMenu)
         {
             return;
         }
