@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-using Levels;
 using System.Collections;
 
 namespace Characters
@@ -24,6 +23,7 @@ namespace Characters
         [Header("Shield")]
         [SerializeField] protected float shieldHP;
         [SerializeField] private bool buffed = false;
+        [SerializeField] protected SpriteRenderer shieldSpriteRenderer;
 
         protected EnemyState currentState;
         protected PlayerStats player;
@@ -54,11 +54,9 @@ namespace Characters
             navMeshAgent.speed = moveSpeed;
             navMeshAgent.updateRotation = false;
             navMeshAgent.updateUpAxis = false;
-        }
 
-        private void Start()
-        {
-
+            // Shield settings
+            shieldSpriteRenderer.enabled = false;
         }
 
         private void FixedUpdate()
@@ -107,6 +105,7 @@ namespace Characters
             yield return new WaitForSeconds(shieldDuration);
             buffed = false;
             shieldHP = 0f;
+            shieldSpriteRenderer.enabled = false;
         }
 
         internal void ShieldYourself(float shieldAmount)
@@ -118,6 +117,7 @@ namespace Characters
 
             buffed = true;
             shieldHP = shieldAmount;
+            shieldSpriteRenderer.enabled = true;
             StartCoroutine(ShieldDurationCoroutine());
         }
 
@@ -154,6 +154,7 @@ namespace Characters
             }
             else
             {
+                shieldSpriteRenderer.enabled = false;
                 health -= damageTaken;
             }
 
