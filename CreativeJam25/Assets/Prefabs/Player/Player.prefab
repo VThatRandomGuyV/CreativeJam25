@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7277709363797054526}
   - component: {fileID: 8935526060892671123}
+  - component: {fileID: 3877060882182588000}
   - component: {fileID: 9117774343697982545}
   - component: {fileID: 6010474830968720872}
   - component: {fileID: 3773818598775845539}
   - component: {fileID: 1090852487401005904}
   - component: {fileID: 6046926744965346060}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -52,6 +53,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   col: {fileID: 1090852487401005904}
   isFlipped: 0
+--- !u!114 &3877060882182588000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909555274014226511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4223fc6d4cf725448dba46c341021ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidProjectileCountBase: 2
+  voidProjectileSpeed: 5
+  voidProjectileDamage: 5
+  voidProjectilRangeMod: 5
+  VPACooldown: 3
+  voidProjectilePrefab: {fileID: 1192747416667966142, guid: ff45c701d3386584794dde714b1b6a5d, type: 3}
+  basePoisonDamage: 0.02
 --- !u!114 &9117774343697982545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,16 +88,37 @@ MonoBehaviour:
   speed: 5
   level: 1
   OrbitBallLevel: 0
-  AutoCannonLevel: 0
+  voidProjectileLevel: 0
   LazerLevel: 0
   SlowAuraLevel: 0
   PoisonAuraLevel: 0
   voidRadius: 1
   invincibilityDuration: 2
-  blinkCooldown: 0.5
+  blinkCooldown: 0.2
   damageSound: {fileID: 8300000, guid: 4a947d503aa636e36b79524ec854358e, type: 3}
   deathSound: {fileID: 8300000, guid: 9561dff186f616ef686c881a5ebdcfa6, type: 3}
   PlayerCollider: {fileID: 1090852487401005904}
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: HealthUI, Assembly-CSharp
+        m_MethodName: UpdateHealthUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6010474830968720872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +303,7 @@ GameObject:
   - component: {fileID: 7894472832680753255}
   - component: {fileID: 1255798220715151535}
   - component: {fileID: 7438826115632069871}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Body Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +369,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5115618752126089108, guid: 7d367dc1a08ffef4ea1a0ae61402391e, type: 3}
+  m_Sprite: {fileID: 1197815948645810655, guid: 5223670782ebba64faf280dd4f7c963a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -349,7 +390,7 @@ Animator:
   m_GameObject: {fileID: 7823851156584631376}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3141c00ae87864042ba4c4d728603978, type: 2}
+  m_Controller: {fileID: 9100000, guid: de7cd43ef813b5a45bb5b9b7df04af42, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

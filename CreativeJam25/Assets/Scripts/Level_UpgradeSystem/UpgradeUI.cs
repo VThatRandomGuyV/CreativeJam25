@@ -77,6 +77,7 @@ public class UpgradeUI : MonoBehaviour
 
     public IEnumerator PlayButtonSoundAndClose()
     {
+        unSelectedUpgrades.Clear();
         audioSource.PlayOneShot(audioSource.clip = buttonSound);
         yield return new WaitForSecondsRealtime(0.37f);
         PlayerState.instance.currentState = PlayerState.PlayerStates.Normal; //reset state to normal on closing menu
