@@ -99,24 +99,13 @@ public class Level : MonoBehaviour
         };
     }
 
-    public void UpdateEnemyKilledCount(LevelColor color)
+    public void UpdateEnemyKilledCount(EnemyColor color)
     {
-        // Update the SOs first
-        switch (color)
-        {
-            case LevelColor.Red:
-                levelInfo.redEnemiesKillCount++;
-                break;
-            case LevelColor.Blue:
-                levelInfo.blueEnemiesKillCount++;
-                break;
-            case LevelColor.Green:
-                levelInfo.greenEnemiesKillCount++;
-                break;
-            default:
-                break;
-        }
-        levelInfo.totalEnemiesKillCount++;
+        SpawnManager.Instance.enemyCounts[(int)color] -= 1;
+        SpawnManager.Instance.totalEnemyCount -= 1;
+        
+        UpgradeManager.Instance.enemiesKilled += 1;
+        UpgradeManager.Instance.enemiesKilledText.text = UpgradeManager.Instance.enemiesKilled.ToString();
     }
 
     // Start

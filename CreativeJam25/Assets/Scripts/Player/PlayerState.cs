@@ -8,7 +8,8 @@ public class PlayerState : MonoBehaviour
         Normal,
         Damaged,
         Dead,
-        InMenu
+        InMenu,
+        Win
     }
 
     public PlayerStates currentState;
