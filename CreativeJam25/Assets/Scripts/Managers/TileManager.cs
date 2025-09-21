@@ -49,7 +49,7 @@ public class TileManager : MonoBehaviour
         a[0] = plr.position;
         CalculateVoidAura(plr.position);
         if(isColoured(a[0])){}
-        placeTiles(a, 0);
+        placeTiles(a, -1); //-1 is to reset the tile to black
     }
 
     public void CalculateVoidAura(Vector3 Position) //calculates all the tiles in the players void aura
@@ -93,7 +93,7 @@ public class TileManager : MonoBehaviour
         {
             return false;
         }
-        if (tileset.GetColor(tileset.WorldToCell(Position)) == Color.gray)
+        if (tileset.GetColor(tileset.WorldToCell(Position)) == Color.black) //black is default tile colour
         {
             return false;
         }
@@ -101,7 +101,6 @@ public class TileManager : MonoBehaviour
         return true;
     }
 
-    // position has to be an array, that way multiple tiles can be placed instantly, 0 is gray, 1 is red, 2 is blue, 3 is green, 4 is orange
     void placeTiles(Vector3[] positions, int color)
     {
 
@@ -111,26 +110,20 @@ public class TileManager : MonoBehaviour
             switch (color)
             {
                 case 0:
-                    tileset.SetColor(tileset.WorldToCell(positions[i]), Color.gray);
-                    
-                    break;
-                case 1:
                     tileset.SetColor(tileset.WorldToCell(positions[i]), Color.red);
                     break;
-                case 2:
+                case 1:
                     tileset.SetColor(tileset.WorldToCell(positions[i]), Color.blue);
                     break;
-                case 3:
+                case 2:
                     tileset.SetColor(tileset.WorldToCell(positions[i]), Color.green);
                     break;
-                case 4:
+                case 3:
                     tileset.SetColor(tileset.WorldToCell(positions[i]), Color.yellow);
                     break;
-            }
-            
-
-            {
-
+                default:
+                    tileset.SetColor(tileset.WorldToCell(positions[i]), Color.black);
+                    break;
             }
         }
     }
