@@ -238,6 +238,7 @@ MonoBehaviour:
   attackRange: 1
   attackDamage: 20
   attackCooldown: 5
+  entityColor: 2
   knockbackForce: 0.25
   shieldHP: 0
   buffed: 0

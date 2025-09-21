@@ -15,6 +15,7 @@ namespace Characters
         [SerializeField] protected float attackRange;
         [SerializeField] protected float attackDamage;
         [SerializeField] protected float attackCooldown;
+        [SerializeField] protected EnemyColor entityColor;
 
         [Header("Knockback 0.25f - 2.0f")]
         [SerializeField] private float knockbackForce;
@@ -65,6 +66,7 @@ namespace Characters
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
+            // Check player is assigned, enemy health is above 0, and not dead
             if (!player)
             {
                 Debug.LogError("Player is not active.");
@@ -83,9 +85,12 @@ namespace Characters
                 return;
             }
 
+            // Enemy behavior
             gameObject.SetActive(true);
             ToggleProjectiles(true);
             playerPosition = player.transform.position;
+
+            PlaceTilesOnTileset(new Vector3[] { transform.position }, TileManager.Instance.tileset, (int)entityColor);
 
             if (!IsNearPlayer())
             {
@@ -150,7 +155,7 @@ namespace Characters
 
         public void TakeDamage(float damageTaken)
         {
-            if(shieldHP > 0)
+            if (shieldHP > 0)
             {
                 shieldHP -= damageTaken;
             }
@@ -195,10 +200,38 @@ namespace Characters
             {
                 Instantiate(itemDropPrefab, transform.position, Quaternion.identity);
             }
-            
+
             // Destroy the enemy object after a delay
             Destroy(gameObject, 2f);
             OnDeath?.Invoke(this);
+        }
+        
+        void PlaceTilesOnTileset(Vector3[] positions, UnityEngine.Tilemaps.Tilemap tileset, int color)
+        {
+
+            for (int i = 0; i < positions.Length; i++)
+            {
+                tileset.SetTileFlags(tileset.WorldToCell(positions[i]), UnityEngine.Tilemaps.TileFlags.None);
+                switch (color)
+                {
+                    case 0:
+                        tileset.SetColor(tileset.WorldToCell(positions[i]), Color.gray);
+                        
+                        break;
+                    case 1:
+                        tileset.SetColor(tileset.WorldToCell(positions[i]), Color.red);
+                        break;
+                    case 2:
+                        tileset.SetColor(tileset.WorldToCell(positions[i]), Color.blue);
+                        break;
+                    case 3:
+                        tileset.SetColor(tileset.WorldToCell(positions[i]), Color.green);
+                        break;
+                    case 4:
+                        tileset.SetColor(tileset.WorldToCell(positions[i]), Color.yellow);
+                        break;
+                }
+            }
         }
     }
 }
