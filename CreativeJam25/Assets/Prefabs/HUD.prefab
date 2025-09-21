@@ -1204,6 +1204,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: ebd60d37ae3b49baf8f1282bc6e0f2e1, type: 3}
     - target: {fileID: 7744958595487775462, guid: 8e4271f627c2306cc9d57822fad51754, type: 3}
+      propertyPath: upgrades.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744958595487775462, guid: 8e4271f627c2306cc9d57822fad51754, type: 3}
+      propertyPath: 'upgrades.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: add386ce8bf53a2609b69b784ad3b398, type: 2}
+    - target: {fileID: 7744958595487775462, guid: 8e4271f627c2306cc9d57822fad51754, type: 3}
+      propertyPath: 'upgrades.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 978d754f30cab0ea7bca5ac154b5de40, type: 2}
+    - target: {fileID: 7744958595487775462, guid: 8e4271f627c2306cc9d57822fad51754, type: 3}
+      propertyPath: 'upgrades.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 790da2c7df935334db44b67e887cc581, type: 2}
+    - target: {fileID: 7744958595487775462, guid: 8e4271f627c2306cc9d57822fad51754, type: 3}
       propertyPath: OnUpgradeSelected.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}

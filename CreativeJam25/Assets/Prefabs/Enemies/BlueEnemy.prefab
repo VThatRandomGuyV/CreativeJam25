@@ -234,14 +234,13 @@ MonoBehaviour:
   health: 50
   moveSpeed: 1
   navMeshAgent: {fileID: 3479556103046260041}
-  levelColor: 0
   attackRange: 1
   attackDamage: 20
   attackCooldown: 5
   knockbackForce: 0.25
   shieldHP: 0
   buffed: 0
-  miniBluePrefab: {fileID: 2800850533861119925, guid: fbc0b3536ce93dd479fd7f35d8f2061d, type: 3}
+  miniBluePrefab: {fileID: 2800850533861119925, guid: 77ca13367cae6464d87c0704405cc94d, type: 3}
   minionsContainer: {fileID: 2097985669912626626}
   minionsCooldown: 20
   minionsMaxCount: 3
