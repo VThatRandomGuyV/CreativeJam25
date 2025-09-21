@@ -11,19 +11,14 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private Rigidbody2D plr;
     [SerializeField] private UpgradeManager uManager;
 
-
-
-
-
-
     void Update()
     {
         var a = new Vector3[1]; //testing purposes
 
         a[0] = plr.position;
 
-        placeTiles(a, 0); 
         print(isColoured(a[0]));
+        placeTiles(a, 0);
     }
 
     bool isColoured(Vector3 Position) //checks whether the tile at the position inputted is coloured. if so it returns true
@@ -31,13 +26,9 @@ public class NewBehaviourScript : MonoBehaviour
         if (tileset.GetColor(tileset.WorldToCell(Position)) == Color.gray)
         {
             return false;
-            
         }
-        else
-        {
-            return true;
-            uManager.AddXP(67.0f);
-        }
+        uManager.AddXP(1.0f);
+        return true;
     }
 
     // position has to be an array, that way multiple tiles can be placed instantly, 0 is gray, 1 is red, 2 is blue, 3 is green, 4 is orange
