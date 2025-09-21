@@ -1,0 +1,405 @@
+fileFormatVersion: 2
+guid: 8be47e451f9ffe04ea3679b0966dc090
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4661807994159974942
+    second: void_orb-Sheet_0
+  - first:
+      213: -1631722571356032928
+    second: void_orb-Sheet_1
+  - first:
+      213: 7015175318560303597
+    second: void_orb-Sheet_2
+  - first:
+      213: 7946647889628445488
+    second: void_orb-Sheet_3
+  - first:
+      213: 3019217170110559053
+    second: void_orb-Sheet_4
+  - first:
+      213: -190063106107234116
+    second: void_orb-Sheet_5
+  - first:
+      213: -3552456718400544532
+    second: void_orb-Sheet_6
+  - first:
+      213: 3218994824067205270
+    second: void_orb-Sheet_7
+  - first:
+      213: 6014292188604529554
+    second: void_orb-Sheet_8
+  - first:
+      213: 1357235794287152363
+    second: void_orb-Sheet_9
+  - first:
+      213: 2367333209070482477
+    second: void_orb-Sheet_10
+  - first:
+      213: 5803300504393126281
+    second: void_orb-Sheet_11
+  - first:
+      213: 2641825156966950333
+    second: void_orb-Sheet_12
+  - first:
+      213: -3863926429514807637
+    second: void_orb-Sheet_13
+  - first:
+      213: -4477607966219349332
+    second: void_orb-Sheet_14
+  - first:
+      213: 8210247492589583278
+    second: void_orb-Sheet_15
+  - first:
+      213: 339201231532191802
+    second: void_orb-Sheet_16
+  - first:
+      213: -2827266423488797702
+    second: void_orb-Sheet_17
+  - first:
+      213: -7291835219386359026
+    second: void_orb-Sheet_18
+  - first:
+      213: -2040316125984479531
+    second: void_orb-Sheet_19
+  - first:
+      213: -5859609513413741485
+    second: void_orb-Sheet_20
+  - first:
+      213: -7903499015070812937
+    second: void_orb-Sheet_21
+  - first:
+      213: 4243156404900953388
+    second: void_orb-Sheet_22
+  - first:
+      213: -6007896169054520850
+    second: void_orb-Sheet_23
+  - first:
+      213: 984460331703283071
+    second: void_orb-Sheet_24
+  - first:
+      213: 1298755970813901651
+    second: void_orb-Sheet_25
+  - first:
+      213: 5850929241166980870
+    second: void_orb-Sheet_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: void_orb-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e5b401245eed4fb0800000000000000
+      internalID: -4661807994159974942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void_orb-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 0
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 060365277f4fa59e0800000000000000
+      internalID: -1631722571356032928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void_orb-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de9efd3c8c8ea5160800000000000000
+      internalID: 7015175318560303597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void_orb-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 0
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03b3968072a284e60800000000000000
+      internalID: 7946647889628445488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void_orb-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d43333c050a66e920800000000000000
+      internalID: 3019217170110559053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void_orb-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 0
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb8229bac92cc5df0800000000000000
+      internalID: -190063106107234116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void_orb-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce029c3bf6323bec0800000000000000
+      internalID: -3552456718400544532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void_orb-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 0
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 698c85eccba2cac20800000000000000
+      internalID: 3218994824067205270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: void_orb-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29bfd2561ee077350800000000000000
+      internalID: 6014292188604529554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1e3474091e17b8e43a520f1a82edda1b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      void_orb-Sheet_0: -4661807994159974942
+      void_orb-Sheet_1: -1631722571356032928
+      void_orb-Sheet_2: 7015175318560303597
+      void_orb-Sheet_3: 7946647889628445488
+      void_orb-Sheet_4: 3019217170110559053
+      void_orb-Sheet_5: -190063106107234116
+      void_orb-Sheet_6: -3552456718400544532
+      void_orb-Sheet_7: 3218994824067205270
+      void_orb-Sheet_8: 6014292188604529554
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
