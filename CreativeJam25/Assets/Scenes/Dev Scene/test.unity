@@ -175,9 +175,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.15440509
+    x: 0
     y: 0
-    width: 0.6914926
+    width: 1
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
@@ -379,11 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileset: {fileID: 331919658}
   plr: {fileID: 2094713040}
-  gray: {r: 1, g: 0, b: 0, a: 0}
-  red: {r: 1, g: 0, b: 0, a: 0}
-  blue: {r: 0, g: 0.16732645, b: 1, a: 0}
-  green: {r: 0, g: 1, b: 0.04225135, a: 0}
-  orange: {r: 1, g: 0.43110603, b: 0, a: 0}
+  uManager: {fileID: 0}
 --- !u!156049354 &244398390
 Grid:
   m_ObjectHideFlags: 0
