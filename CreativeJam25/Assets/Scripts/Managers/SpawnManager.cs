@@ -35,7 +35,7 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        if (totalEnemyCount < 50) { 
+        if (totalEnemyCount < 200) { 
             int ranIndex;
             ranIndex = Random.Range(0, enemiesPrefabs.Length);
 

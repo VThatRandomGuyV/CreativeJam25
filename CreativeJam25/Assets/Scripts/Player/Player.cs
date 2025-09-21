@@ -163,8 +163,7 @@ public class Player : MonoBehaviour
             else
             {
                 // No enemies in range, point laser straight ahead
-                Vector3 forwardPosition = transform.position + transform.right * (playerStats.voidRadius * laserRangeMod);
-                laserBeamComponent.UpdateTargetPosition(forwardPosition, transform.position);
+                targetPosition = transform.position + transform.right * (playerStats.voidRadius * laserRangeMod);
             }
 
             // Update laser target position
@@ -178,7 +177,7 @@ public class Player : MonoBehaviour
     {
         GameObject laserBeam = Instantiate(laserPrefab, transform.position, Quaternion.identity);
         laserBeam.GetComponent<LaserBeam>().Initialize(laserDamagePerSec);
-        float reTargetTime = 0.5f;
+        float reTargetTime = 0.25f;
 
         laserBeams.Add(laserBeam);
 

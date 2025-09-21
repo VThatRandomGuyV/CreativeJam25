@@ -173,6 +173,26 @@ namespace Characters
             transform.position += (Vector3)knockbackDirection * knockbackForce;
         }
 
+        public void TakeDamageNoKnockback(float damageTaken)
+        {
+            if (shieldHP > 0)
+            {
+                shieldHP -= damageTaken;
+            }
+            else
+            {
+                shieldSpriteRenderer.enabled = false;
+                health -= damageTaken;
+
+                // Death check
+                if (health <= 0)
+                {
+                    Death();
+                    return;
+                }
+            }
+        }
+
         public void SetEnemyState(EnemyState enemyState)
         {
             currentState = enemyState;

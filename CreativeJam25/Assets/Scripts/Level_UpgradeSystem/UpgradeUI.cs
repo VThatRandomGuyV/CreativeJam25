@@ -56,7 +56,7 @@ public class UpgradeUI : MonoBehaviour
             //If it is a stat upgrade, have description say "Increases [stat] by [amount]%"
             if (randomUpgrade is StatUpgrade statUpgrade)
             {
-                statUpgrade.UpgradeAmount = Random.Range(1, 100); // Random amount between 5% and 20%
+                statUpgrade.UpgradeAmount = Random.Range(5, 25); // Random amount between 5% and 20%
                 randomUpgrade.Description = "Increases " + statUpgrade.upgradeType + " by " + statUpgrade.UpgradeAmount + "%";
             }
             else if (randomUpgrade is WeaponUpgrade weaponUpgrade)
