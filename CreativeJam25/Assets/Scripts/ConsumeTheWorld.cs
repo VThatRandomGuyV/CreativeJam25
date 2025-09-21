@@ -22,11 +22,14 @@ public class ConsumeTheWorld : MonoBehaviour
         EdgyQuote.color = new Color(1f, 1f, 1f, 0.0f);
         inputAction = new Consume();
         inputAction.Action.Consume.started += ctx => Consume();
-        ShowPrompt();
+        ConsumeTheWorldPrompt.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+        PlayerStats.instance.ConsumeTheWorld.AddListener(ShowPrompt);
     }
 
     public void ShowPrompt()
     {
+        gameObject.SetActive(true);
         ConsumeTheWorldPrompt.gameObject.SetActive(true);
         inputAction.Enable();
     }
@@ -74,8 +77,6 @@ public class ConsumeTheWorld : MonoBehaviour
             EdgyQuote.color = Color.Lerp(edgyQuoteEndColor, edgyQuoteStartColor, elapsedTime / duration);
             yield return null;
         }
-        SceneManager.LoadScene("MainMenu");
-
-        // panelImage.color = endColor; // Ensure the final color is set
+        SceneManager.LoadScene("Main Menu");
         }
 }
