@@ -2,8 +2,6 @@ using Characters;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using System.Runtime.CompilerServices;
 
 [RequireComponent(typeof(PlayerStats))]
 [RequireComponent(typeof(PlayerState))]

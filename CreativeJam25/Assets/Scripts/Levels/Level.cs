@@ -39,21 +39,21 @@ public class Level : MonoBehaviour
     [SerializeField] private LevelColorManager _levelColorManager;
     [SerializeField] private SpawnManager spawnManager;
     [SerializeField] private List<LevelData> enemyData;
-    // [SerializeField] private AudioSource audioSource;
     [SerializeField] private Transform playerSpawnPoint;
     [SerializeField] private PlayerStats player;
+    [SerializeField] private GameObject playerPrefab;
     [SerializeField] private LevelInfoSO levelInfo;
     public PlayerStats Player => player;
     public LevelColor currentColor;
+    public DateTime levelStartTime;
+    public DateTime levelEndTime;
+    public TimeSpan timeSurvived;
 
     // Update the level's color based on the current level color
     // Subscribe to OnLevelColorChanged event
     public void UpdateCurrentColor(LevelColor newColor)
     {
         currentColor = newColor;
-        //spawnManager.SetLevelColor(newColor);
-
-        // PlayAudio();
     }
 
     private void OnDestroy()
@@ -69,24 +69,20 @@ public class Level : MonoBehaviour
 
     private void SpawnPlayer()
     {
-        Transform spawnPoint = playerSpawnPoint;
-        player.transform.position = spawnPoint.position;
+        // Check if player already exists in the scene
+        if (!player)
+        {
+            player = Instantiate(playerPrefab, playerSpawnPoint.position, Quaternion.identity).GetComponent<PlayerStats>();
+            // Start level timer
+            levelStartTime = DateTime.Now;
+            return;
+        }
+
+        player.transform.position = playerSpawnPoint.position;
+        // Start level timer
+        levelStartTime = DateTime.Now;
+
     }
-
-    // private void PlayAudio()
-    // {
-    //     audioSource.clip = GetLevelData(currentColor).BackgroundMusic;
-
-    //     // Plays the AudioClip assigned to the AudioSource
-    //     if (audioSource.clip != null)
-    //     {
-    //         audioSource.Play();
-    //     }
-    //     else
-    //     {
-    //         Debug.LogWarning("No audio clip is assigned to the AudioSource!");
-    //     }
-    // }
 
     public int GetNumberOfEnemiesDefeated(LevelColor color)
     {
@@ -103,9 +99,9 @@ public class Level : MonoBehaviour
     {
         SpawnManager.Instance.enemyCounts[(int)color] -= 1;
         SpawnManager.Instance.totalEnemyCount -= 1;
-        
+
         UpgradeManager.Instance.enemiesKilled += 1;
-        //UpgradeManager.Instance.enemiesKilledText.text = UpgradeManager.Instance.enemiesKilled.ToString();
+        UpgradeManager.Instance.enemiesKilledText.text = UpgradeManager.Instance.enemiesKilled.ToString() + " Killed";
     }
 
     // Start
@@ -115,5 +111,11 @@ public class Level : MonoBehaviour
         //spawnManager.Initialize();
 
         SpawnPlayer();
+    }
+
+    // Update
+    public void Update()
+    {
+        timeSurvived = DateTime.Now - levelStartTime;
     }
 }
