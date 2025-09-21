@@ -10,6 +10,8 @@ public class TileManager : MonoBehaviour
 
     [SerializeField] private int xpOnConsume = 1;
 
+    private int Grey = -1;
+
     public static TileManager Instance { get; private set; }
     private void Awake()
     {
@@ -49,7 +51,7 @@ public class TileManager : MonoBehaviour
         a[0] = plr.position;
         CalculateVoidAura(plr.position);
         if(isColoured(a[0])){}
-        placeTiles(a, -1); //-1 is to reset the tile to black
+        placeTiles(a, Grey); //-1 is to reset the tile to black
     }
 
     public void CalculateVoidAura(Vector3 Position) //calculates all the tiles in the players void aura
@@ -84,7 +86,7 @@ public class TileManager : MonoBehaviour
                 // XP is already given in isColoured
             }
         }
-        placeTiles(positions, 0); //call placeTiles with the positions found and color gray (0)
+        placeTiles(positions, Grey); //call placeTiles with the positions found and color gray (0)
     }
 
     bool isColoured(Vector3 Position) //checks whether the tile at the position inputted is coloured. if so it returns true
