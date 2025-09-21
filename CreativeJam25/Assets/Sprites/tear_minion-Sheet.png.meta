@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tear_minion-Sheet_0: -6900478262589176632
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

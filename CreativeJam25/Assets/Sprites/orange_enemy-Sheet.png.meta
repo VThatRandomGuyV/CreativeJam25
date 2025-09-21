@@ -459,7 +459,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      orange_enemy-Sheet_0: 5840377893506240471
+      orange_enemy-Sheet_1: 4244826215259267518
+      orange_enemy-Sheet_10: 8649684140238313322
+      orange_enemy-Sheet_11: 3543521097271703302
+      orange_enemy-Sheet_12: -4891783122482597651
+      orange_enemy-Sheet_13: -9122967467442148158
+      orange_enemy-Sheet_2: 3336658298168264273
+      orange_enemy-Sheet_3: -7023748526783684491
+      orange_enemy-Sheet_4: 6338282474474048885
+      orange_enemy-Sheet_5: -5910970065407338258
+      orange_enemy-Sheet_6: -905310445674610441
+      orange_enemy-Sheet_7: -198507945549587335
+      orange_enemy-Sheet_8: -6627282949816434003
+      orange_enemy-Sheet_9: -6154464221470433348
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
