@@ -189,10 +189,9 @@ GameObject:
   - component: {fileID: 7496476180899592813}
   - component: {fileID: 8243329834332580970}
   - component: {fileID: 1181669545835133422}
-  - component: {fileID: 7185461264111737214}
   - component: {fileID: 8137432422228675022}
   m_Layer: 9
-  m_Name: YellowEnemy
+  m_Name: OrangeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,28 +274,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!95 &7185461264111737214
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2800850533861119925}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d8d9e21e5d94fc544b14b651b883b7cf, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!195 &8137432422228675022
 NavMeshAgent:
   m_ObjectHideFlags: 0
