@@ -107,6 +107,7 @@ public class Level : MonoBehaviour
     // Start
     public void Start()
     {
+        Time.timeScale = 1.0f;
         _levelColorManager.Initialize();
         //spawnManager.Initialize();
 

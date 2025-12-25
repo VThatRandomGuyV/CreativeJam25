@@ -31,14 +31,15 @@ namespace Characters
             spawnToggle = toggle;
         }
 
+        // Removed spawning minions for now to reduce difficulty
         protected override void MoveTowardsPlayer()
         {
             base.MoveTowardsPlayer();
             
-            SpawnMinions();
+            //SpawnMinions();
         }
 
-        private void SpawnMinions()
+        /*private void SpawnMinions()
         {
             if (!miniBluePrefab)
             {
@@ -67,6 +68,6 @@ namespace Characters
                 bluey.transform.SetParent(minionsContainer);
                 bluey.GetComponent<RedEnemy>().Initialize(Level.Instance.Player);
             }
-        }
+        }*/
     }
 }

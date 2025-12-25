@@ -514,8 +514,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Very sad boy, takes alot of hits and produces tear drops that chase
-    you'
+  m_text: '- Very sad boy, takes alot of hits but is slow'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -766,8 +765,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31, y: 210}
-  m_SizeDelta: {x: 120, y: 72}
+  m_AnchoredPosition: {x: 31, y: 200.55}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &490061302
 MonoBehaviour:
@@ -789,7 +788,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 3b431b6ad1ebc4c14994167ef5409935, type: 3}
+  m_Texture: {fileID: 2800000, guid: bf3acc7a6a6b39d4a93374b9235549c0, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1424,8 +1423,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.000006, y: 91.99998}
-  m_SizeDelta: {x: 120, y: 64}
+  m_AnchoredPosition: {x: 31.000006, y: 85.645}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &746830096
 MonoBehaviour:
@@ -1447,7 +1446,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: a3d5c2065d65c096a8c62c4b67d68ffd, type: 3}
+  m_Texture: {fileID: 2800000, guid: 5b575773f6bc2354a9195f2229bca56b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2426,9 +2425,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 51.000004, y: -25}
-  m_SizeDelta: {x: 196, y: 84}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 49.177, y: -39.406}
+  m_SizeDelta: {x: 120, y: 120}
+  m_Pivot: {x: 0.6514716, y: 0.5}
 --- !u!114 &1298975229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2449,7 +2448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: e3e3f3dd2b16e86d597e9817f87a60d6, type: 3}
+  m_Texture: {fileID: 2800000, guid: efc55ed762407b048bec50cbc5f2ffb5, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2531,8 +2530,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2445752227286686976, guid: e88eff8fddd8792d08c2c89486ea689a, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3b178e0a2db8bbf149963cc621a5b605, type: 3}
-  m_Resource: {fileID: 8300000, guid: 3b178e0a2db8bbf149963cc621a5b605, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3025,12 +3024,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2445752227286686976, guid: e88eff8fddd8792d08c2c89486ea689a, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3b178e0a2db8bbf149963cc621a5b605, type: 3}
-  m_Resource: {fileID: 8300000, guid: 3b178e0a2db8bbf149963cc621a5b605, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3231,8 +3230,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.000006, y: -150}
-  m_SizeDelta: {x: 136, y: 96}
+  m_AnchoredPosition: {x: 31, y: -151}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1685586529
 MonoBehaviour:
@@ -3254,7 +3253,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: fdaace941a1dacce2a23542da7dc72a8, type: 3}
+  m_Texture: {fileID: 2800000, guid: 04c3ad34e223a1145a84aa2d3f89c059, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
