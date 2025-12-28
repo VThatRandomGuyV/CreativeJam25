@@ -91,7 +91,7 @@ public class TileManager : MonoBehaviour
 
     bool isColoured(Vector3 Position) //checks whether the tile at the position inputted is coloured. if so it returns true
     {
-        if(PlayerState.instance.currentState == PlayerState.PlayerStates.InMenu) //if in menu dont give xp
+        if(PlayerState.instance.currentState != PlayerState.PlayerStates.Normal) //if not normal state, do not give xp
         {
             return false;
         }
