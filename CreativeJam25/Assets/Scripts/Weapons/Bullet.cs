@@ -83,7 +83,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && shotByPlayer)
         {
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            Debug.Log("Dealing " + damage + " damage to enemy");
+            collision.gameObject.GetComponentInParent<Enemy>().TakeDamage(damage);
             Destroy(gameObject);
         }
 

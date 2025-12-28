@@ -43,11 +43,11 @@ public class StatUpgrade : Upgrade
                 stats.IncreaseMaxHealth(upgradeAmount);
                 break;
             case StatUpgradeType.Speed:
-                stats.IncreaseSpeed(upgradeAmount - SpeedUpgradeCount * 2);
+                stats.IncreaseSpeed(upgradeAmount/2);
                 SpeedUpgradeCount++;
                 break;
             case StatUpgradeType.VoidAura:
-                stats.IncreaseVoidAura(upgradeAmount - VoidAuraUpgradeCount * 2);
+                stats.IncreaseVoidAura(upgradeAmount/2);
                 VoidAuraUpgradeCount++;
                 break;
             default:

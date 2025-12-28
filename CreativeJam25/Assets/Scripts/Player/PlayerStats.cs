@@ -61,7 +61,6 @@ public class PlayerStats : MonoBehaviour
     {
         voidAura = Physics2D.CircleCast(transform.position, voidRadius, Vector2.zero, 0);
 
-
     }
 
     void OnDrawGizmos()
@@ -141,6 +140,7 @@ public class PlayerStats : MonoBehaviour
 
     public void IncreaseSpeed(float amount)
     {
+        Debug.Log("Increasing speed by " + amount + "%");
         speed *= 1 + (amount / 100);
     }
 
@@ -148,6 +148,7 @@ public class PlayerStats : MonoBehaviour
     {
         //increase void aura radius
         voidRadius *= 1 + (amount / 100);
+        Debug.Log("Increasing void aura by " + amount + "%");
     }
     private IEnumerator InvicibilityFrames()
     {
