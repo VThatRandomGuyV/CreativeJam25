@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1090852487401005904}
   - component: {fileID: 6046926744965346060}
   - component: {fileID: 5198339385514953073}
+  - component: {fileID: 8944205698698491838}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -80,7 +81,7 @@ MonoBehaviour:
   laserPrefab: {fileID: 9208547040363949134, guid: e08bd5a0411830845b96ca495e084710, type: 3}
   laserDamagePerSec: 5
   laserRangeMod: 10
-  basePoisonDamage: 0.2
+  basePoisonDamage: 0.15
 --- !u!114 &9117774343697982545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +335,28 @@ MonoBehaviour:
   m_DefaultActionMap: Action
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!195 &8944205698698491838
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909555274014226511}
+  m_Enabled: 1
+  m_AgentTypeID: 287145453
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1339179989763739871
 GameObject:
   m_ObjectHideFlags: 0
